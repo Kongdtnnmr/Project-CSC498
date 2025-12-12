@@ -1,18 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logo from '../../assets/logo.jpg';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const navItems = [
         { name: 'หน้าแรก', path: '/' },
         { name: 'สมัครเรียน', path: '/apply' },
         { name: 'หลักสูตร', path: '/courses' },
-        { name: 'ข่าวประชาสัมพันธ์', path: '#' },
-        { name: 'ช่องทางการติดต่อ', path: '#' },
+        { name: 'ข่าวประชาสัมพันธ์', path: '/#news-section' },
+        { name: 'ช่องทางการติดต่อ', path: '/#contact-section' },
     ];
+
+    const handleScroll = (e, path) => {
+        if (path.includes('#')) {
+            const [basePath, hash] = path.split('#');
+            if (location.pathname === basePath || (basePath === '/' && location.pathname === '/')) {
+                // Prevent default only if we want to handle scroll manually and avoid URL flicker, 
+                // but letting it bubble usually updates URL which is fine. 
+                // We mainly want to ensure scroll happens.
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100); // Small delay to ensuring rendering if returning from another page, though here we are likely already on page.
+            }
+        }
+        setIsOpen(false);
+    };
 
     return (
         <nav className="bg-[#1e3a8a] text-white shadow-md">
@@ -33,6 +52,7 @@ export default function Navbar() {
                                 <Link
                                     key={item.name}
                                     to={item.path}
+                                    onClick={(e) => handleScroll(e, item.path)}
                                     className="hover:bg-[#172554] px-3 py-2 rounded-md text-lg font-medium transition-colors"
                                 >
                                     {item.name}
@@ -59,7 +79,7 @@ export default function Navbar() {
                                 key={item.name}
                                 to={item.path}
                                 className="block px-3 py-2 rounded-md text-base font-medium hover:bg-[#172554]"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => handleScroll(e, item.path)}
                             >
                                 {item.name}
                             </Link>

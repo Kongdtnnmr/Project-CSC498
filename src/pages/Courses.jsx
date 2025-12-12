@@ -1,19 +1,48 @@
+import { useState } from 'react';
 import { Wallet, GraduationCap } from 'lucide-react';
 
 export default function Courses() {
-    const courses = [
-        { title: 'วิทยาลัยแพทยศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'วิทยาลัยทันตแพทยศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'วิทยาลัยเภสัชศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'พยาบาลศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'วิทยาศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'กายภาพบำบัดและเวชศาสตร์การกีฬา', image: 'https://placehold.co/400x250' },
-        { title: 'เทคนิคการแพทย์', image: 'https://placehold.co/400x250' },
-        { title: 'วิทยาลัยการแพทย์แผนตะวันออก', image: 'https://placehold.co/400x250' },
-        { title: 'ทัศนมาตรศาสตร์', image: 'https://placehold.co/400x250' },
-        { title: 'รังสีเทคนิค', image: 'https://placehold.co/400x250' },
-        { title: 'วิทยาลัยวิศวกรรมชีวการแพทย์', image: 'https://placehold.co/400x250' },
-    ];
+    const [activeTab, setActiveTab] = useState("ประกาศนียบัตรวิชาชีพ (ปวช.)");
+
+    const majors = {
+        "ประกาศนียบัตรวิชาชีพ (ปวช.)": [
+            "สาขาวิชาช่างยนต์",
+            "สาขาวิชาช่างไฟฟ้า",
+            "สาขาวิชาช่างอิเล็กทรอนิกส์",
+            "สาขาวิชาเมคคาทรอนิกส์",
+            "สาขาวิชาการบัญชี",
+            "สาขาวิชาการตลาด",
+            "สาขาวิชาคอมพิวเตอร์ธุรกิจ",
+            "สาขาจิสติกส์"
+        ],
+        "ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)": [
+            "สาขาวิชาเทคนิคเครื่องกล",
+            "สาขางานไฟฟ้า",
+            "สาขาวิชาเทคนิคอุตสาหกรรม",
+            "สาขาวิชาการจัดการธุรกิจการกีฬา",
+            "สาขางานเมคคาทรอนิกส์และหุ่นยนต์",
+            "สาขาวิชาการบัญชี",
+            "สาขาวิชาการตลาด",
+            "สาขาวิชาการจัดการโลจิสติกส์",
+            "สาขาวิชาเทคโนโลยีสารสนเทศ",
+            "สาขาวิชามัลติมีเดีย",
+            "สาขาวิชาการจัดการงานบริการสถานพยาบาล",
+            "สาขาวิชาเทคนิคยานยนต์ไฟฟ้า"
+        ],
+        "ปริญญาตรี": [
+            "สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ (วศ.บ.)",
+            "สาขาวิศวกรรมโลจิสติกส์ (วศ.บ.)",
+            "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว.",
+            "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว. วิชาเอก ยานยนต์ไฟฟ้า (EV)",
+            "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว. วิชาเอก Data Center",
+            "สาขาวิศวกรรมความปลอดภัย (วศ.บ.) จป.",
+            "สาขาบัญชีบัณฑิต (บช.บ.)",
+            "สาขาการจัดการโลจิสติกส์และซัพพลายเชน (บธ.บ.) เรียนออนไลน์",
+            "สาขาวิศวกรรมอุตสาหการ (วศ.บ.) กว. เรียนออนไลน์",
+            "สาขาบัญชีบัณฑิต (บช.บ.) เรียนออนไลน์",
+            "สาขานวัตกรรมการตลาด (บธ.บ.) เรียนออนไลน์"
+        ]
+    };
 
     return (
         <div className="bg-[#fcfbf9] min-h-screen pb-20">
@@ -22,37 +51,31 @@ export default function Courses() {
 
             {/* Tabs */}
             <div className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 flex gap-8 text-sm font-medium pt-4">
-                    <div className="text-pink-500 border-b-2 border-pink-500 pb-2 cursor-pointer">ประกาศนียบัตรวิชาชีพ (ปวช.)</div>
-                    <div className="text-gray-500 hover:text-gray-800 pb-2 cursor-pointer">ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</div>
-                    <div className="text-gray-500 hover:text-gray-800 pb-2 cursor-pointer">ปริญญาตรี</div>
+                <div className="max-w-7xl mx-auto px-4 pl-60 flex gap-8 text-sm font-medium pt-5">
+                    {Object.keys(majors).map((tab) => (
+                        <div
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`pb-2 cursor-pointer transition-colors ${activeTab === tab
+                                ? "text-blue-900 border-b-2 border-blue-900"
+                                : "text-gray-500 hover:text-gray-800"
+                                }`}
+                        >
+                            {tab}
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-12 gap-8">
-                {/* Sidebar */}
-                <div className="md:col-span-3 space-y-2">
-                    <div className="bg-white p-4 rounded shadow-sm border border-gray-100 space-y-4">
-                        <div className="flex items-center gap-3 text-gray-500 hover:text-blue-600 cursor-pointer">
-                            <Wallet className="w-5 h-5" />
-                            <span>ค่าธรรมเนียมการศึกษา</span>
-                        </div>
-                        <div className="h-px bg-gray-100"></div>
-                        <div className="flex items-center gap-3 text-gray-500 hover:text-blue-600 cursor-pointer">
-                            <GraduationCap className="w-5 h-5" />
-                            <span>ทุนการศึกษา</span>
-                        </div>
-                    </div>
-                </div>
-
+            <div className="max-w-7xl mx-auto px-4 py-8">
                 {/* Course Grid */}
-                <div className="md:col-span-9">
+                <div className="w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {courses.map((course, index) => (
+                        {majors[activeTab].map((course, index) => (
                             <div key={index} className="bg-gray-500 rounded-lg overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow">
-                                <img src={course.image} alt={course.title} className="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                                <img src="https://placehold.co/400x250" alt={course} className="w-full h-48 object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex items-end h-full">
-                                    <h3 className="text-white font-bold text-center w-full drop-shadow-md">{course.title}</h3>
+                                    <h3 className="text-white font-bold text-center w-full drop-shadow-md">{course}</h3>
                                 </div>
                             </div>
                         ))}
@@ -60,10 +83,7 @@ export default function Courses() {
                 </div>
             </div>
 
-            {/* Footer Text */}
-            <div className="text-center mt-12 mb-8">
-                <h2 className="text-4xl font-serif text-black">ขึ้นหลักสูตรตามที่เลือก</h2>
-            </div>
+
 
         </div>
     );

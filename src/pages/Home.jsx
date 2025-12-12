@@ -1,6 +1,19 @@
 import { ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function Home() {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const element = document.getElementById(hash.replace('#', ''));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [hash]);
+
     const levels = [
         { title: 'หลักสูตร ระดับ ปวช.', color: 'bg-white' },
         { title: 'หลักสูตร ระดับ ปวส.', color: 'bg-white' },
@@ -68,7 +81,7 @@ export default function Home() {
             </div>
 
             {/* News Header */}
-            <div className="bg-[#3e4c70] text-white text-center py-4">
+            <div id="news-section" className="bg-[#3e4c70] text-white text-center py-4">
                 <h2 className="text-xl font-medium">ข่าวประชาสัมพันธ์ เลื่อนมาตรงนี้</h2>
             </div>
 

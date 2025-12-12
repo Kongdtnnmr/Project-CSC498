@@ -3,6 +3,7 @@ import { useState } from 'react';
 export default function Apply() {
     const [formData, setFormData] = useState({});
     const [selectedCurriculum, setSelectedCurriculum] = useState("");
+    const [selectedMajor, setSelectedMajor] = useState("");
 
     const majors = {
         "ประกาศนียบัตรวิชาชีพ (ปวช.)": [
@@ -56,8 +57,11 @@ export default function Apply() {
                         <div>
                             <label className="block text-sm font-semibold text-red-600 mb-1">หลักสูตร *</label>
                             <select
-                                defaultValue=""
-                                onChange={(e) => setSelectedCurriculum(e.target.value)}
+                                value={selectedCurriculum}
+                                onChange={(e) => {
+                                    setSelectedCurriculum(e.target.value);
+                                    setSelectedMajor(""); // Reset major when curriculum changes
+                                }}
                                 className="w-full border border-gray-300 rounded p-2 text-gray-700 focus:outline-none focus:border-blue-500"
                             >
                                 <option value="" disabled hidden>เลือก หลักสูตร</option>
@@ -68,7 +72,11 @@ export default function Apply() {
                         </div>
                         <div>
                             <label className="block text-sm font-semibold text-red-600 mb-1">สาขา *</label>
-                            <select defaultValue="" className="w-full border border-gray-300 rounded p-2 text-gray-700 focus:outline-none focus:border-blue-500">
+                            <select
+                                value={selectedMajor}
+                                onChange={(e) => setSelectedMajor(e.target.value)}
+                                className="w-full border border-gray-300 rounded p-2 text-gray-700 focus:outline-none focus:border-blue-500"
+                            >
                                 <option value="" disabled hidden>เลือก สาขา</option>
                                 {selectedCurriculum && majors[selectedCurriculum] && majors[selectedCurriculum].map((major, index) => (
                                     <option key={index} value={major}>{major}</option>
