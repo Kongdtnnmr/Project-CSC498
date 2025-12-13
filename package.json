@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "firebase": "^12.6.0",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.560.0",
     "react": "^19.2.0",
@@ -22,6 +23,7 @@
     "@tailwindcss/postcss": "^4.1.17",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-basic-ssl": "^2.1.0",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
