@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const { hash } = useLocation();
@@ -14,10 +14,12 @@ export default function Home() {
         }
     }, [hash]);
 
+    const navigate = useNavigate();
+
     const levels = [
-        { title: 'หลักสูตร ระดับ ปวช.', color: 'bg-white' },
-        { title: 'หลักสูตร ระดับ ปวส.', color: 'bg-white' },
-        { title: 'หลักสูตร ระดับ ปริญญาตรี.', color: 'bg-white' },
+        { title: 'หลักสูตร ระดับ ปวช.', target: 'ประกาศนียบัตรวิชาชีพ (ปวช.)' },
+        { title: 'หลักสูตร ระดับ ปวส.', target: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)' },
+        { title: 'หลักสูตร ระดับ ปริญญาตรี.', target: 'ปริญญาตรี' },
     ];
 
     const news = [
@@ -42,8 +44,12 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center tracking-wide">
                         {levels.map((level, index) => (
-                            <div key={index} className="flex flex-col items-center gap-4">
-                                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center text-gray-500 shadow-lg hover:scale-105 transition-transform cursor-pointer">
+                            <div
+                                key={index}
+                                className="flex flex-col items-center gap-4 cursor-pointer group"
+                                onClick={() => navigate('/courses', { state: { activeTab: level.target } })}
+                            >
+                                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center text-gray-500 shadow-lg group-hover:scale-105 transition-transform">
                                     <span>logo</span>
                                 </div>
                                 <h3 className="text-white text-lg font-medium">{level.title}</h3>

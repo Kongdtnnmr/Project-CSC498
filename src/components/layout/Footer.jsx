@@ -9,11 +9,15 @@ export default function Footer() {
                     <div className="flex justify-center md:justify-start">
                         <div className="bg-white p-2 rounded-lg shadow-lg w-full max-w-sm h-64 relative overflow-hidden flex items-center justify-center">
                             {/* Visual placeholder for map */}
-                            <img
-                                src="https://img.freepik.com/free-vector/location_53876-25530.jpg"
-                                alt="Map Location"
-                                className="w-full h-full object-cover rounded"
-                            />
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.6603222128524!2d100.66402207603167!3d13.859416794790931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d632991ba92b5%3A0xbf51554d7d71158d!2zMTQg4LiL4Lit4LiiIOC4hOC4ueC5ieC4muC4reC4mSAyNyDguYHguKLguIEgMTAg4LmB4LiC4Lin4LiH4LiX4LmI4Liy4LmB4Lij4LmJ4LiHIOC5gOC4guC4leC4muC4suC4h-C5gOC4guC4mSDguIHguKPguLjguIfguYDguJfguJ7guKHguKvguLLguJnguITguKMgMTAyMjA!5e0!3m2!1sth!2sth!4v1765629302974!5m2!1sth!2sth"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                     </div>
 
@@ -25,8 +29,8 @@ export default function Footer() {
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-6 h-6 text-[#fbbf24] mt-1" />
                                 <div>
-                                    <p>123 Anywhere St.</p>
-                                    <p>Any City, ST 12345</p>
+                                    <p>บริษัท บล๊อคเซส จำกัด</p>
+                                    <p>กรุงเทพมหานคร</p>
                                 </div>
                             </div>
 

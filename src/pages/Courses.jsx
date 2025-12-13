@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Wallet, GraduationCap } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 export default function Courses() {
+    const location = useLocation();
     const [activeTab, setActiveTab] = useState("ประกาศนียบัตรวิชาชีพ (ปวช.)");
+
+    useEffect(() => {
+        if (location.state?.activeTab) {
+            setActiveTab(location.state.activeTab);
+        }
+    }, [location.state]);
 
     const majors = {
         "ประกาศนียบัตรวิชาชีพ (ปวช.)": [
