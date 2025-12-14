@@ -2,35 +2,33 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { fetchContent } from '../services/api';
 
 export default function Home() {
     const { hash } = useLocation();
     const { t } = useLanguage();
-
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [sliderImages, setSliderImages] = useState([]);
+    
     useEffect(() => {
-        if (hash) {
-            const element = document.getElementById(hash.replace('#', ''));
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [hash]);
+        fetchContent("news").then((data) => {
+            const images = data
+                ?.map(item => item.image)
+                .filter(Boolean);
+
+            setSliderImages(images || []);
+        });
+    }, []);
 
     const navigate = useNavigate();
 
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const sliderImages = [
-        '/public/pic/family.jpg',
-        '/public/pic/Screenshot 2025-12-14 232104.png',
-        '/public/pic/sddefault.jpg',
-    ];
-
     const nextSlide = () => {
+        if (!sliderImages.length) return;
         setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
     };
 
     const prevSlide = () => {
+        if (!sliderImages.length) return;
         setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
     };
 
