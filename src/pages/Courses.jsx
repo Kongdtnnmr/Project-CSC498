@@ -33,7 +33,7 @@ export default function Courses() {
 
             {/* Tabs */}
             <div className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 pl-60 flex gap-8 text-sm font-medium pt-5">
+                <div className="max-w-7xl mx-auto px-4 flex justify-center gap-4 sm:gap-8 text-sm font-medium pt-5">
                     {tabKeys.map((key) => (
                         <div
                             key={key}
