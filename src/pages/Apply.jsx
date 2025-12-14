@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const InputField = ({ label, placeholder, type = "text", required = false, icon, value, onChange, maxLength }) => (
@@ -48,6 +48,172 @@ const SelectField = ({ label, value, onChange, options, placeholder, required = 
     </div>
 );
 
+const CustomSelect = ({ value, onChange, options, placeholder, isMobile }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (containerRef.current && !containerRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const handleSelect = (val) => {
+        onChange(val);
+        setIsOpen(false);
+    };
+
+    // Helper to get display label
+    const getDisplayLabel = () => {
+        if (!value) return placeholder;
+        // options can be array of strings or objects {val, label}
+        const found = options.find(o => (typeof o === 'object' ? o.val : o) === value);
+        if (!found) return value;
+        return typeof found === 'object' ? found.label : found;
+    };
+
+    return (
+        <div className="relative w-full" ref={containerRef}>
+            <div
+                onClick={() => setIsOpen(!isOpen)}
+                className={`w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg py-2.5 px-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 outline-none flex justify-between items-center cursor-pointer ${!value ? 'text-slate-500' : ''}`}
+            >
+                <span className="truncate">{getDisplayLabel()}</span>
+                <svg className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+
+            {/* Dropdown List - Forced Downwards */}
+            {isOpen && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-xl max-h-60 overflow-y-auto z-50 animate-in fade-in zoom-in-95 duration-100">
+                    {options.map((opt, idx) => {
+                        const val = typeof opt === 'object' ? opt.val : opt;
+                        const label = typeof opt === 'object' ? opt.label : opt;
+                        const isSelected = val === value;
+                        return (
+                            <div
+                                key={idx}
+                                onClick={() => handleSelect(val)}
+                                className={`px-4 py-2 cursor-pointer text-sm hover:bg-blue-50 transition-colors ${isSelected ? 'bg-blue-50 text-blue-600 font-medium' : 'text-slate-700'}`}
+                            >
+                                {label}
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
+        </div>
+    );
+};
+
+const DateSelect = ({ label, value, onChange, required }) => {
+    const { language } = useLanguage();
+    // Value format: DD/MM/YYYY
+    const [d, m, y] = (value || "//").split('/');
+
+    // Calculate days based on selected month
+    const getDaysInMonth = (month) => {
+        if (!month) return 31;
+        // User custom rules:
+        // April (04), June (06), September (09), November (11) = 30 days
+        // February (02) = 14 days (per request)
+        if (['04', '06', '09', '11'].includes(month)) return 30;
+        if (month === '02') return 14;
+        return 31;
+    };
+
+    const daysInMonth = getDaysInMonth(m);
+    const days = Array.from({ length: daysInMonth }, (_, i) => String(i + 1).padStart(2, '0'));
+
+    const monthsTH = [
+        { val: '01', label: 'มกราคม' }, { val: '02', label: 'กุมภาพันธ์' }, { val: '03', label: 'มีนาคม' },
+        { val: '04', label: 'เมษายน' }, { val: '05', label: 'พฤษภาคม' }, { val: '06', label: 'มิถุนายน' },
+        { val: '07', label: 'กรกฎาคม' }, { val: '08', label: 'สิงหาคม' }, { val: '09', label: 'กันยายน' },
+        { val: '10', label: 'ตุลาคม' }, { val: '11', label: 'พฤศจิกายน' }, { val: '12', label: 'ธันวาคม' }
+    ];
+
+    const monthsEN = [
+        { val: '01', label: 'January' }, { val: '02', label: 'February' }, { val: '03', label: 'March' },
+        { val: '04', label: 'April' }, { val: '05', label: 'May' }, { val: '06', label: 'June' },
+        { val: '07', label: 'July' }, { val: '08', label: 'August' }, { val: '09', label: 'September' },
+        { val: '10', label: 'October' }, { val: '11', label: 'November' }, { val: '12', label: 'December' }
+    ];
+
+    const months = language === 'TH' ? monthsTH : monthsEN;
+
+    // Years calculation
+    // TH: BE (Current Year + 543)
+    // EN: AD (Current Year)
+    // Range: 15-70 years old (approx)
+    const currentYear = new Date().getFullYear();
+    const isThai = language === 'TH';
+    const yearOffset = isThai ? 543 : 0;
+
+    // Base calculation on AD year to keep consistent range
+    const startYearAD = currentYear - 10;
+    const endYearAD = currentYear - 70;
+
+    const years = [];
+    for (let yr = startYearAD; yr >= endYearAD; yr--) {
+        years.push(String(yr + yearOffset));
+    }
+
+    const handleChange = (type, val) => {
+        let newD = type === 'd' ? val : (d || '');
+        const newM = type === 'm' ? val : (m || '');
+        const newY = type === 'y' ? val : (y || '');
+
+        // If changing month, check if current day is valid for new month
+        if (type === 'm') {
+            const maxDays = getDaysInMonth(val);
+            if (newD && parseInt(newD) > maxDays) {
+                newD = ''; // Reset day if invalid
+            }
+        }
+
+        onChange(`${newD}/${newM}/${newY}`);
+    };
+
+    return (
+        <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                {label} {required && <span className="text-red-500">*</span>}
+            </label>
+            <div className="grid grid-cols-3 gap-2">
+                <div className="relative">
+                    <CustomSelect
+                        value={d || ''}
+                        onChange={(val) => handleChange('d', val)}
+                        options={days}
+                        placeholder={isThai ? 'วัน' : 'Day'}
+                    />
+                </div>
+                <div className="relative">
+                    <CustomSelect
+                        value={m || ''}
+                        onChange={(val) => handleChange('m', val)}
+                        options={months}
+                        placeholder={isThai ? 'เดือน' : 'Month'}
+                    />
+                </div>
+                <div className="relative">
+                    <CustomSelect
+                        value={y || ''}
+                        onChange={(val) => handleChange('y', val)}
+                        options={years}
+                        placeholder={isThai ? 'ปี' : 'Year'}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const SectionHeader = ({ title, subtitle }) => (
     <div className="mb-6 border-b border-slate-100 pb-4">
         <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
@@ -93,18 +259,7 @@ export default function Apply() {
         }
     };
 
-    const handleDobChange = (e) => {
-        let value = e.target.value.replace(/\D/g, ""); // Remove non-digits
-        if (value.length > 8) value = value.slice(0, 8); // Max 8 digits
 
-        // Add slashes
-        if (value.length >= 5) {
-            value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4)}`;
-        } else if (value.length >= 3) {
-            value = `${value.slice(0, 2)}/${value.slice(2)}`;
-        }
-        setDob(value);
-    };
 
 
     return (
@@ -198,14 +353,11 @@ export default function Apply() {
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <InputField
+                                    <DateSelect
                                         label={t('apply.labelDob')}
-                                        placeholder={t('apply.placeholderDob')}
                                         required
                                         value={dob}
-                                        onChange={handleDobChange}
-                                        maxLength={10}
-
+                                        onChange={setDob}
                                     />
                                     <InputField
                                         label={t('apply.labelIdCard')}
