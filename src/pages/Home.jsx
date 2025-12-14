@@ -1,9 +1,11 @@
-import { ArrowRight } from 'lucide-react';
-import { useEffect } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Home() {
     const { hash } = useLocation();
+    const { t } = useLanguage();
 
     useEffect(() => {
         if (hash) {
@@ -16,10 +18,26 @@ export default function Home() {
 
     const navigate = useNavigate();
 
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const sliderImages = [
+        '/public/pic/family.jpg',
+        '/public/pic/Screenshot 2025-12-14 232104.png',
+        '/public/pic/sddefault.jpg',
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+    };
+
     const levels = [
-        { title: 'หลักสูตร ระดับ ปวช.', target: 'ประกาศนียบัตรวิชาชีพ (ปวช.)' },
-        { title: 'หลักสูตร ระดับ ปวส.', target: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)' },
-        { title: 'หลักสูตร ระดับ ปริญญาตรี.', target: 'ปริญญาตรี' },
+        { title: t('home.levelVocational'), target: 'ประกาศนียบัตรวิชาชีพ (ปวช.)' },
+        { title: t('home.levelHighVocational'), target: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)' },
+        { title: t('home.levelBachelor'), target: 'ปริญญาตรี' },
     ];
 
     const news = [
@@ -31,11 +49,56 @@ export default function Home() {
 
     return (
         <div className="bg-[#f0f0f0] min-h-screen">
-            {/* Hero Section */}
-            <div className="bg-[#fdfbf6] py-20 text-center">
-                <h1 className="text-3xl font-bold mb-4">ภาพ/คลิป โปรโมทเพื่อความน่าเรียน</h1>
-                <div className="w-full max-w-4xl mx-auto bg-gray-200 h-64 rounded-xl flex items-center justify-center text-gray-400">
-                    Image/Video Placeholder
+            {/* Hero Section - Image Slider */}
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] overflow-hidden bg-gray-100">
+                {/* Slider Images */}
+                <div className="relative w-full h-full">
+                    {sliderImages.map((image, index) => (
+                        <div
+                            key={index}
+                            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                }`}
+                        >
+                            <img
+                                src={image}
+                                alt={`Slide ${index + 1}`}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Left Arrow */}
+                <button
+                    onClick={prevSlide}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-10"
+                    aria-label="Previous slide"
+                >
+                    <ChevronLeft size={28} />
+                </button>
+
+                {/* Right Arrow */}
+                <button
+                    onClick={nextSlide}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-3 shadow-lg transition-all hover:scale-110 z-10"
+                    aria-label="Next slide"
+                >
+                    <ChevronRight size={28} />
+                </button>
+
+                {/* Slide Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {sliderImages.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentSlide(index)}
+                            className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
+                                ? 'bg-white w-8'
+                                : 'bg-white/50 hover:bg-white/75'
+                                }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
                 </div>
             </div>
 
@@ -66,19 +129,19 @@ export default function Home() {
                         {/* Simulated content based on image text */}
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div className="h-64 md:h-80 bg-gray-200 flex items-center justify-center">
-                                <span className="text-gray-500">Student Image Placeholder</span>
+                                <span className="text-gray-500">{t('home.studentImagePlaceholder')}</span>
                             </div>
                             <div className="p-8 flex flex-col justify-center bg-white">
-                                <h2 className="text-3xl font-bold text-red-600 mb-2">"งานยุ่ง" ก็เรียนจบได้</h2>
-                                <h3 className="text-xl text-blue-900 font-bold mb-4">เราพร้อมช่วยคุณวางแผนเรียนต่อ (ปวช. / ปวส. / ป.ตรี)</h3>
+                                <h2 className="text-3xl font-bold text-red-600 mb-2">{t('home.promoMainTitle')}</h2>
+                                <h3 className="text-xl text-blue-900 font-bold mb-4">{t('home.promoSubTitle')}</h3>
                                 <ul className="text-blue-800 space-y-2 mb-6 text-sm md:text-base">
-                                    <li>• เรียนออนไลน์ | เลือกเวลาเรียนได้ | ไม่กระทบงานประจำ</li>
-                                    <li>• ผ่อนชำระรายเดือนได้</li>
-                                    <li>• เทียบโอนหน่วยกิต ผู้มีประสบการณ์ทำงาน</li>
-                                    <li>• กู้กองทุน กยศ.ได้</li>
+                                    <li>{t('home.promoList1')}</li>
+                                    <li>{t('home.promoList2')}</li>
+                                    <li>{t('home.promoList3')}</li>
+                                    <li>{t('home.promoList4')}</li>
                                 </ul>
                                 <button className="bg-red-600 text-white px-6 py-2 rounded-full font-bold hover:bg-red-700 w-max transition-colors">
-                                    สมัครเรียน
+                                    {t('home.applyButton')}
                                 </button>
                             </div>
                         </div>
@@ -88,7 +151,7 @@ export default function Home() {
 
             {/* News Header */}
             <div id="news-section" className="bg-[#3e4c70] text-white text-center py-4">
-                <h2 className="text-xl font-medium">ข่าวประชาสัมพันธ์ เลื่อนมาตรงนี้</h2>
+                <h2 className="text-xl font-medium">{t('home.newsHeader')}</h2>
             </div>
 
             {/* News Grid */}
@@ -100,7 +163,7 @@ export default function Home() {
                                 <div className="bg-gray-200 h-40 w-full mb-3 rounded flex items-center justify-center bg-[url('https://placehold.co/400x300')] bg-cover bg-center">
                                     {/* Thumbnail */}
                                 </div>
-                                <p className="text-xs text-blue-600 font-semibold mb-1">ข่าว</p>
+                                <p className="text-xs text-blue-600 font-semibold mb-1">{t('home.newsTag')}</p>
                                 <h4 className="text-sm font-bold text-gray-800 line-clamp-2">{item.title}</h4>
                                 <p className="text-xs text-gray-500 mt-2">{item.date}</p>
                             </div>
@@ -108,7 +171,7 @@ export default function Home() {
                     </div>
                     <div className="flex justify-center mt-8">
                         <button className="bg-gray-800 text-white px-6 py-2 rounded text-sm hover:bg-black transition-colors">
-                            อ่านข่าวทั้งหมด {'>'}
+                            {t('home.readAllNews')} {'>'}
                         </button>
                     </div>
                 </div>
