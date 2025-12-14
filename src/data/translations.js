@@ -6,8 +6,8 @@ export const translations = {
             courses: 'หลักสูตร',
             news: 'ข่าวประชาสัมพันธ์',
             contact: 'ช่องทางการติดต่อ',
-            bangkokUniversity: 'BLOCKCESS Co., Ltd.',
-            bangkokUniversityThai: 'บริษัท บล๊อคเซส จำกัด'
+            blockcess: 'BLOCKCESS Co., Ltd.',
+            blockcessThai: 'บริษัท บล๊อคเซส จำกัด'
         },
         home: {
             promoTitle: 'ภาพ/คลิป โปรโมทเพื่อความน่าเรียน',
@@ -118,8 +118,8 @@ export const translations = {
             courses: 'Courses',
             news: 'News',
             contact: 'Contact',
-            bangkokUniversity: 'BLOCKCESS Co., Ltd.',
-            bangkokUniversityThai: 'บริษัท บล๊อคเซส จำกัด'
+            blockcess: 'BLOCKCESS Co., Ltd.',
+            blockcessThai: 'บริษัท บล๊อคเซส จำกัด'
         },
         home: {
             promoTitle: 'Promotional Image/Video',

@@ -49,10 +49,10 @@ export default function Navbar() {
                             />
                             <div className="flex flex-col">
                                 <span className="text-lg font-bold tracking-tight leading-none text-white transition-colors uppercase">
-                                    {t('nav.bangkokUniversity')}
+                                    {t('nav.blockcess')}
                                 </span>
                                 <span className="text-sm font-medium text-gray-200 transition-colors">
-                                    {t('nav.bangkokUniversityThai')}
+                                    {t('nav.blockcessThai')}
                                 </span>
                             </div>
                         </Link>
@@ -138,6 +138,24 @@ export default function Navbar() {
                                 {item.name}
                             </Link>
                         ))}
+                    </div>
+                    <div className="pt-4 pb-4 border-t border-[#172554]">
+                        <div className="flex items-center justify-center space-x-6">
+                            <button
+                                onClick={() => { switchLanguage('TH'); setIsOpen(false); }}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${language === 'TH' ? 'bg-[#172554] ring-1 ring-blue-400' : 'hover:bg-[#172554]'}`}
+                            >
+                                <img src="https://flagcdn.com/w40/th.png" alt="TH" className="h-5 w-8 object-cover rounded-sm" />
+                                <span className="text-white font-medium">TH</span>
+                            </button>
+                            <button
+                                onClick={() => { switchLanguage('EN'); setIsOpen(false); }}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${language === 'EN' ? 'bg-[#172554] ring-1 ring-blue-400' : 'hover:bg-[#172554]'}`}
+                            >
+                                <img src="https://flagcdn.com/w40/gb.png" alt="EN" className="h-5 w-8 object-cover rounded-sm" />
+                                <span className="text-white font-medium">EN</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
