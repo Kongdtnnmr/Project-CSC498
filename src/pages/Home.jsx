@@ -9,14 +9,30 @@ export default function Home() {
     const { t } = useLanguage();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [sliderImages, setSliderImages] = useState([]);
-    
+    const [news, setNews] = useState([]);
+    const [courses, setCourses] = useState([]);
+    const [events, setEvents] = useState([]);
+
     useEffect(() => {
-        fetchContent("news").then((data) => {
-            const images = data
-                ?.map(item => item.image)
+        Promise.all([
+            fetchContent("news"),
+            fetchContent("courses"),
+            fetchContent("events"),
+        ]).then(([newsData, coursesData, eventsData]) => {
+
+            console.log("NEWS:", newsData);
+            console.log("EVENTS:", eventsData);
+
+            setNews(newsData || []);
+            setCourses(coursesData || []);
+            setEvents(eventsData || []);
+
+            // 👉 slider ใช้รูปจาก news
+            const images = (newsData || [])
+                .map(item => item.image)
                 .filter(Boolean);
 
-            setSliderImages(images || []);
+            setSliderImages(images);
         });
     }, []);
 
@@ -38,12 +54,14 @@ export default function Home() {
         { title: t('home.levelBachelor'), target: 'ปริญญาตรี' },
     ];
 
-    const news = [
-        { id: 1, title: 'ข่าวประชาสัมพันธ์ 1', date: '25 พฤษภาคม 2568' },
-        { id: 2, title: 'รับสมัครนักศึกษาใหม่', date: '21 มีนาคม 2568' },
-        { id: 3, title: 'โครงการทุนการศึกษา', date: '15 กุมภาพันธ์ 2568' },
-        { id: 4, title: 'กิจกรรม open house', date: '10 มกราคม 2568' },
-    ]
+    // {
+    //     events.map((item) => (
+    //         <div key={item.id} className="bg-white p-2 rounded shadow-md">
+    //             <h4 className="text-sm font-bold">{item.title}</h4>
+    //             <p className="text-xs text-gray-500">{item.date}</p>
+    //         </div>
+    //     ))
+    // }
 
     return (
         <div className="bg-[#f0f0f0] min-h-screen">
@@ -156,17 +174,32 @@ export default function Home() {
             <div className="bg-[#3e4c70] py-10 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                        {news.map((item) => (
-                            <div key={item.id} className="bg-white p-2 rounded shadow-md hover:shadow-xl transition-shadow cursor-pointer">
-                                <div className="bg-gray-200 h-40 w-full mb-3 rounded flex items-center justify-center bg-[url('https://placehold.co/400x300')] bg-cover bg-center">
-                                    {/* Thumbnail */}
-                                </div>
-                                <p className="text-xs text-blue-600 font-semibold mb-1">{t('home.newsTag')}</p>
-                                <h4 className="text-sm font-bold text-gray-800 line-clamp-2">{item.title}</h4>
-                                <p className="text-xs text-gray-500 mt-2">{item.date}</p>
+                        {events.map((item) => (
+                            <div
+                                key={item.id}
+                                className="bg-white p-2 rounded shadow-md hover:shadow-xl transition-shadow cursor-pointer"
+                            >
+                                {/* Image */}
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="h-40 w-full mb-3 rounded object-cover"
+                                />
+
+                                {/* Content */}
+                                <p className="text-xs text-blue-600 font-semibold mb-1">
+                                    {t('home.newsTag')}
+                                </p>
+                                <h4 className="text-sm font-bold text-gray-800 line-clamp-2">
+                                    {item.title}
+                                </h4>
+                                <p className="text-xs text-gray-500 mt-2">
+                                    {item.date}
+                                </p>
                             </div>
                         ))}
                     </div>
+
                     <div className="flex justify-center mt-8">
                         <button className="bg-gray-800 text-white px-6 py-2 rounded text-sm hover:bg-black transition-colors">
                             {t('home.readAllNews')} {'>'}
@@ -177,4 +210,3 @@ export default function Home() {
         </div>
     );
 }
-
