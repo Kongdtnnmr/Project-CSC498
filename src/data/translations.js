@@ -23,7 +23,9 @@ export const translations = {
             promoList3: '• เทียบโอนหน่วยกิต ผู้มีประสบการณ์ทำงาน',
             promoList4: '• กู้กองทุน กยศ.ได้',
             applyButton: 'สมัครเรียน',
-            newsHeader: 'ข่าวประชาสัมพันธ์ เลื่อนมาตรงนี้',
+            newsHeader: 'ข่าวประชาสัมพันธ์',
+            newsMainHeader: 'ข่าวประชาสัมพันธ์',
+            newsSubHeader: 'ข่าวสารมหาวิทยาลัย',
             newsTag: 'ข่าว',
             readAllNews: 'อ่านข่าวทั้งหมด'
         },
@@ -135,7 +137,9 @@ export const translations = {
             promoList3: '• Credit transfer for work experience',
             promoList4: '• Student Loan Fund (SLF) available',
             applyButton: 'Apply Now',
-            newsHeader: 'News & Announcements',
+            newsHeader: 'News',
+            newsMainHeader: 'News',
+            newsSubHeader: 'University News',
             newsTag: 'News',
             readAllNews: 'Read All News'
         },

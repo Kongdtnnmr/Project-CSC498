@@ -1,4 +1,5 @@
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, PenTool, Book, Languages, GraduationCap, X } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -12,6 +13,7 @@ export default function Home() {
     const [news, setNews] = useState([]);
     const [courses, setCourses] = useState([]);
     const [events, setEvents] = useState([]);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
         Promise.all([
@@ -27,7 +29,6 @@ export default function Home() {
             setCourses(coursesData || []);
             setEvents(eventsData || []);
 
-            // 👉 slider ใช้รูปจาก news
             const images = (newsData || [])
                 .map(item => item.image)
                 .filter(Boolean);
@@ -49,22 +50,31 @@ export default function Home() {
     };
 
     const levels = [
-        { title: t('home.levelVocational'), target: 'ประกาศนียบัตรวิชาชีพ (ปวช.)' },
-        { title: t('home.levelHighVocational'), target: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)' },
-        { title: t('home.levelBachelor'), target: 'ปริญญาตรี' },
+        {
+            title: t('home.levelVocational'),
+            target: 'ประกาศนียบัตรวิชาชีพ (ปวช.)',
+            icon: PenTool,
+            color: 'bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6]',
+            borderColor: 'border-blue-300'
+        },
+        {
+            title: t('home.levelHighVocational'),
+            target: 'ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)',
+            icon: Book,
+            color: 'bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6]',
+            borderColor: 'border-blue-300'
+        },
+        {
+            title: t('home.levelBachelor'),
+            target: 'ปริญญาตรี',
+            icon: GraduationCap,
+            color: 'bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6]',
+            borderColor: 'border-blue-300'
+        },
     ];
 
-    // {
-    //     events.map((item) => (
-    //         <div key={item.id} className="bg-white p-2 rounded shadow-md">
-    //             <h4 className="text-sm font-bold">{item.title}</h4>
-    //             <p className="text-xs text-gray-500">{item.date}</p>
-    //         </div>
-    //     ))
-    // }
-
     return (
-        <div className="bg-[#f0f0f0] min-h-screen">
+        <div className="bg-[#f0f0f0] min-h-screen relative">
             {/* Hero Section - Image Slider */}
             <div className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] overflow-hidden bg-gray-100">
                 {/* Slider Images */}
@@ -119,19 +129,21 @@ export default function Home() {
             </div>
 
             {/* Course Levels Section */}
-            <div className="bg-[#2e3b5e] py-16">
+            <div className="bg-white py-16">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center tracking-wide">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center tracking-wide">
                         {levels.map((level, index) => (
                             <div
                                 key={index}
                                 className="flex flex-col items-center gap-4 cursor-pointer group"
                                 onClick={() => navigate('/courses', { state: { activeTab: level.target } })}
                             >
-                                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center text-gray-500 shadow-lg group-hover:scale-105 transition-transform">
-                                    <span>logo</span>
+                                <div className={`w-48 h-48 rounded-full ${level.color} p-2 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform`}>
+                                    <div className="w-full h-full border-2 border-dashed border-white/50 rounded-full flex items-center justify-center">
+                                        <level.icon size={72} className="text-white drop-shadow-md" />
+                                    </div>
                                 </div>
-                                <h3 className="text-white text-lg font-medium">{level.title}</h3>
+                                <h3 className="text-gray-800 text-xl font-medium text-center max-w-[250px]">{level.title}</h3>
                             </div>
                         ))}
                     </div>
@@ -165,48 +177,97 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* News Header */}
-            <div id="news-section" className="bg-[#3e4c70] text-white text-center py-4">
-                <h2 className="text-xl font-medium">{t('home.newsHeader')}</h2>
-            </div>
-
-            {/* News Grid */}
-            <div className="bg-[#3e4c70] py-10 px-4">
+            {/* News Section */}
+            <div id="news-section" className="bg-[#3E5074] py-16 px-4">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                        {events.map((item) => (
-                            <div
-                                key={item.id}
-                                className="bg-white p-2 rounded shadow-md hover:shadow-xl transition-shadow cursor-pointer"
-                            >
-                                {/* Image */}
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="h-40 w-full mb-3 rounded object-cover"
-                                />
-
-                                {/* Content */}
-                                <p className="text-xs text-blue-600 font-semibold mb-1">
-                                    {t('home.newsTag')}
-                                </p>
-                                <h4 className="text-sm font-bold text-gray-800 line-clamp-2">
-                                    {item.title}
-                                </h4>
-                                <p className="text-xs text-gray-500 mt-2">
-                                    {item.date}
-                                </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        {/* Left Column */}
+                        <div className="flex flex-col gap-8">
+                            <div className="mb-4">
+                                <h2 className="text-4xl  text-white mb-2">{t('home.newsMainHeader')}</h2>
+                                <p className="text-xl text-gray-400">{t('home.newsSubHeader')}</p>
                             </div>
-                        ))}
+
+                            {/* First News Item */}
+                            {events.length > 0 && (
+                                <div className="group cursor-pointer">
+                                    <div className="overflow-hidden rounded-xl mb-4" onClick={() => setSelectedImage(events[0].image)}>
+                                        <img
+                                            src={events[0].image}
+                                            alt={events[0].title}
+                                            className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <p className="text-gray-400 text-sm mb-2">{events[0].date}</p>
+                                    <h3 className="text-white text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
+                                        {events[0].title}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm line-clamp-3 mb-4">
+                                        {t('home.promoSubTitle')} {/* Using existing text as placeholder description */}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Right Column */}
+                        <div className="flex flex-col gap-12 pt-8 md:pt-20">
+                            {events.slice(1, 3).map((item) => (
+                                <div key={item.id} className="group cursor-pointer">
+                                    <div className="overflow-hidden rounded-xl mb-4" onClick={() => setSelectedImage(item.image)}>
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+                                    <p className="text-gray-400 text-sm mb-2">{item.date}</p>
+                                    <h3 className="text-white text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm line-clamp-3 mb-4">
+                                        {t('home.promoSubTitle')}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="flex justify-center mt-8">
-                        <button className="bg-gray-800 text-white px-6 py-2 rounded text-sm hover:bg-black transition-colors">
-                            {t('home.readAllNews')} {'>'}
+                    <div className="flex justify-center mt-12">
+                        <button
+                            onClick={() => navigate('/news')}
+                            className="bg-transparent border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-2"
+                        >
+                            {t('home.readAllNews')}
+                            <ArrowRight size={20} />
                         </button>
                     </div>
                 </div>
             </div>
+
+            {/* Image Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div
+                        className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute -top-12 right-0 bg-white/10 text-white rounded-full p-2 cursor-pointer hover:bg-white/20 transition-colors backdrop-blur-sm"
+                        >
+                            <X size={24} />
+                        </button>
+                        <img
+                            src={selectedImage}
+                            alt="Full Screen View"
+                            className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

@@ -3,10 +3,12 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logo from '../../assets/logo.jpg';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useLoading } from '../../contexts/LoadingContext';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { language, switchLanguage, t } = useLanguage();
+    const { showLoader, hideLoader } = useLoading();
     const [isLangOpen, setLangOpen] = useState(false);
     const location = useLocation();
 
@@ -17,6 +19,16 @@ export default function Navbar() {
         { name: t('nav.news'), path: '/#news-section' },
         { name: t('nav.contact'), path: '/#contact-section' },
     ];
+
+    const handleSwitchLanguage = (lang) => {
+        showLoader();
+        switchLanguage(lang);
+        setLangOpen(false);
+        setIsOpen(false);
+        setTimeout(() => {
+            hideLoader();
+        }, 1000);
+    };
 
     const handleScroll = (e, path) => {
         if (path.includes('#')) {
@@ -89,7 +101,7 @@ export default function Navbar() {
                         {isLangOpen && (
                             <div className="absolute top-full right-0 mt-2 w-32 bg-[#1e3a8a] border border-[#172554] rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                                 <button
-                                    onClick={() => { switchLanguage('TH'); setLangOpen(false); }}
+                                    onClick={() => handleSwitchLanguage('TH')}
                                     className="flex items-center gap-3 px-4 py-2 text-sm text-white hover:bg-[#172554] w-full text-left"
                                 >
                                     <img
@@ -100,7 +112,7 @@ export default function Navbar() {
                                     <span>TH</span>
                                 </button>
                                 <button
-                                    onClick={() => { switchLanguage('EN'); setLangOpen(false); }}
+                                    onClick={() => handleSwitchLanguage('EN')}
                                     className="flex items-center gap-3 px-4 py-2 text-sm text-white hover:bg-[#172554] w-full text-left"
                                 >
                                     <img
@@ -142,14 +154,14 @@ export default function Navbar() {
                     <div className="pt-4 pb-4 border-t border-[#172554]">
                         <div className="flex items-center justify-center space-x-6">
                             <button
-                                onClick={() => { switchLanguage('TH'); setIsOpen(false); }}
+                                onClick={() => handleSwitchLanguage('TH')}
                                 className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${language === 'TH' ? 'bg-[#172554] ring-1 ring-blue-400' : 'hover:bg-[#172554]'}`}
                             >
                                 <img src="https://flagcdn.com/w40/th.png" alt="TH" className="h-5 w-8 object-cover rounded-sm" />
                                 <span className="text-white font-medium">TH</span>
                             </button>
                             <button
-                                onClick={() => { switchLanguage('EN'); setIsOpen(false); }}
+                                onClick={() => handleSwitchLanguage('EN')}
                                 className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${language === 'EN' ? 'bg-[#172554] ring-1 ring-blue-400' : 'hover:bg-[#172554]'}`}
                             >
                                 <img src="https://flagcdn.com/w40/gb.png" alt="EN" className="h-5 w-8 object-cover rounded-sm" />
