@@ -152,25 +152,35 @@ export default function Home() {
 
             {/* Promotion Banner */}
             <div className="bg-[#f0f0f0] py-12 flex justify-center">
-                <div className="max-w-5xl mx-auto px-4">
-                    <div className="relative rounded-xl overflow-hidden shadow-2xl bg-white">
+                <div className="max-w-[80%] mx-auto px-4 w-full">
+                    <div className="relative">
                         {/* Simulated content based on image text */}
-                        <div className="grid grid-cols-1 md:grid-cols-2">
-                            <div className="h-64 md:h-80 bg-gray-200 flex items-center justify-center">
-                                <span className="text-gray-500">{t('home.studentImagePlaceholder')}</span>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="flex flex-col gap-2">
+                                <div className="aspect-video w-full bg-gray-200 flex items-center justify-center relative">
+                                    <iframe
+                                        className="w-full h-full object-cover"
+                                        src="https://www.youtube.com/embed/4gDpNze0qZs"
+                                        title="EN-TECH Video"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                                <p className="text-center font-bold text-gray-700 mt-2">EN-TECH</p>
                             </div>
-                            <div className="p-8 flex flex-col justify-center bg-white">
-                                <h2 className="text-3xl font-bold text-red-600 mb-2">{t('home.promoMainTitle')}</h2>
-                                <h3 className="text-xl text-blue-900 font-bold mb-4">{t('home.promoSubTitle')}</h3>
-                                <ul className="text-blue-800 space-y-2 mb-6 text-sm md:text-base">
-                                    <li>{t('home.promoList1')}</li>
-                                    <li>{t('home.promoList2')}</li>
-                                    <li>{t('home.promoList3')}</li>
-                                    <li>{t('home.promoList4')}</li>
-                                </ul>
-                                <button className="bg-red-600 text-white px-6 py-2 rounded-full font-bold hover:bg-red-700 w-max transition-colors">
-                                    {t('home.applyButton')}
-                                </button>
+                            <div className="flex flex-col gap-2">
+                                <div className="aspect-video w-full bg-gray-200 flex items-center justify-center relative">
+                                    <iframe
+                                        className="w-full h-full object-cover"
+                                        src="https://www.youtube.com/embed/Qpg1CQkzbPM"
+                                        title="Inthanin Phlat Bai Video"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    ></iframe>
+                                </div>
+                                <p className="text-center font-bold text-gray-700 mt-2">เพลง : อินทนิลผลัดใบ</p>
                             </div>
                         </div>
                     </div>
