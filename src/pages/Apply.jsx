@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ⚠️ IMPORTANT: แทนที่ด้วย URL ของ Web App ที่คุณ Deploy จาก Google Apps Script
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAJOqkKxToWMn3W0z2fykdVVO_nZPmGjJxjog-NTNCxoDg9ftIC0wgWrI_kC7KohT9/exec"; 
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxAJOqkKxToWMn3W0z2fykdVVO_nZPmGjJxjog-NTNCxoDg9ftIC0wgWrI_kC7KohT9/exec";
 // หมายเหตุ: โปรดแทนที่ URL นี้ด้วย URL ของ Web App ที่คุณ Deploy เอง
 
 // --- Component Helpers (ย้ายมาไว้ในไฟล์เดียวกันเพื่อความสะดวกในการ Copy-Paste) ---
@@ -194,7 +194,7 @@ const SectionHeader = ({ title, subtitle }) => (
 // --- Main Apply Component ---
 export default function Apply() {
     const { t } = useLanguage();
-    
+
     // States สำหรับเก็บข้อมูลฟอร์ม
     const [selectedCurriculumKey, setSelectedCurriculumKey] = useState("");
     const [selectedMajor, setSelectedMajor] = useState("");
@@ -225,7 +225,7 @@ export default function Apply() {
         if (value.length <= 13) setIdCard(value);
     };
 
-    // ✅ Submit Handler ที่แก้ไขแล้ว
+    //  Submit Handler ที่แก้ไขแล้ว
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -234,7 +234,7 @@ export default function Apply() {
             return;
         }
 
-        if (!selectedCurriculumKey || !selectedMajor || !prefix || !firstNameTH || !lastNameTH || !idCard || !mobile) {
+        if (!selectedCurriculumKey || !selectedMajor || !prefix || !firstNameTH || !lastNameTH || !idCard || !mobile || !email) {
             alert("❌ กรุณากรอกข้อมูลที่มีเครื่องหมาย (*) ให้ครบถ้วน");
             return;
         }
@@ -258,7 +258,7 @@ export default function Apply() {
             const fd = new FormData();
             Object.entries(formData).forEach(([key, value]) => fd.append(key, value));
 
-            const response = await fetch(APPS_SCRIPT_URL, { 
+            const response = await fetch(APPS_SCRIPT_URL, {
                 method: "POST",
                 body: fd,
             });
@@ -271,7 +271,7 @@ export default function Apply() {
 
             // อ่าน Response เป็น Text ก่อน เพื่อป้องกัน SyntaxError
             const responseText = await response.text();
-            
+
             if (responseText.trim().length > 0) {
                 try {
                     // หากมี Text ให้ลอง Parse เป็น JSON
@@ -292,7 +292,7 @@ export default function Apply() {
                 // กรณีที่ Response เป็นค่าว่าง แต่ Status OK (200) - เป็นสาเหตุของ Error เดิม
                 alert(`✅ ${t('apply.submitButton')} สำเร็จ! ข้อมูลถูกบันทึกแล้ว`);
             }
-            
+
             console.log("Form submitted successfully");
 
         } catch (error) {
@@ -353,27 +353,42 @@ export default function Apply() {
                         <section>
                             <SectionHeader title={t('apply.sectionPersonal')} subtitle={t('apply.sectionPersonalSub')} />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                                <SelectField
-                                    label={t('apply.labelPrefix')}
-                                    placeholder={t('apply.placeholderPrefix')}
-                                    required
-                                    value={prefix}
-                                    onChange={(e) => setPrefix(e.target.value)}
-                                    options={prefixOptions}
-                                />
-                                <InputField label={t('apply.labelFirstNameTH')} placeholder={t('apply.placeholderFirstNameTH')} required value={firstNameTH} onChange={(e) => setFirstNameTH(e.target.value)} />
-                                <InputField label={t('apply.labelLastNameTH')} placeholder={t('apply.placeholderLastNameTH')} required value={lastNameTH} onChange={(e) => setLastNameTH(e.target.value)} />
-                                <InputField label={t('apply.labelFirstNameEN')} placeholder={t('apply.placeholderFirstNameEN')} value={firstNameEN} onChange={(e) => setFirstNameEN(e.target.value)} />
-                                <InputField label={t('apply.labelLastNameEN')} placeholder={t('apply.placeholderLastNameEN')} value={lastNameEN} onChange={(e) => setLastNameEN(e.target.value)} />
-                                <DateSelect label={t('apply.labelDOB')} value={dob} onChange={setDob} required />
+                                <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-10 gap-x-4 gap-y-6">
+                                    <div className="md:col-span-2">
+                                        <SelectField
+                                            label={t('apply.labelPrefix')}
+                                            placeholder={t('apply.placeholderPrefix')}
+                                            required
+                                            value={prefix}
+                                            onChange={(e) => setPrefix(e.target.value)}
+                                            options={prefixOptions}
+                                        />
+                                    </div>
+                                    <div className="md:col-span-4">
+                                        <InputField label={t('apply.labelFirstNameTH')} placeholder={t('apply.placeholderFirstNameTH')} required value={firstNameTH} onChange={(e) => setFirstNameTH(e.target.value)} />
+                                    </div>
+                                    <div className="md:col-span-4">
+                                        <InputField label={t('apply.labelLastNameTH')} placeholder={t('apply.placeholderLastNameTH')} required value={lastNameTH} onChange={(e) => setLastNameTH(e.target.value)} />
+                                    </div>
+
+                                    <div className="hidden md:block md:col-span-2"></div>
+                                    <div className="md:col-span-4">
+                                        <InputField label={t('apply.labelFirstNameEN')} placeholder={t('apply.placeholderFirstNameEN')} value={firstNameEN} onChange={(e) => setFirstNameEN(e.target.value)} />
+                                    </div>
+                                    <div className="md:col-span-4">
+                                        <InputField label={t('apply.labelLastNameEN')} placeholder={t('apply.placeholderLastNameEN')} value={lastNameEN} onChange={(e) => setLastNameEN(e.target.value)} />
+                                    </div>
+                                </div>
+
+                                <DateSelect label={t('apply.labelDob')} value={dob} onChange={setDob} required />
                                 <InputField label={t('apply.labelIdCard')} placeholder={t('apply.placeholderIdCard')} value={idCard} onChange={handleIdCardChange} maxLength={13} required />
                                 <InputField label={t('apply.labelMobile')} placeholder={t('apply.placeholderMobile')} value={mobile} onChange={handleMobileChange} maxLength={10} required />
-                                <InputField label={t('apply.labelEmail')} placeholder={t('apply.placeholderEmail')} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <InputField label={t('apply.labelEmail')} placeholder={t('apply.placeholderEmail')} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                 <InputField label={t('apply.labelSchool')} placeholder={t('apply.placeholderSchool')} value={school} onChange={(e) => setSchool(e.target.value)} />
                             </div>
                         </section>
 
-                        <div className="flex justify-end">
+                        <div className="flex justify-center">
                             <button type="submit" className="bg-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
                                 {t('apply.submitButton')}
                             </button>

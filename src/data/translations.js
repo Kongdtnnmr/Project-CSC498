@@ -31,7 +31,7 @@ export const translations = {
         },
         apply: {
             bannerTitle: 'แบบฟอร์มสมัครเรียนออนไลน์',
-            bannerSubtitle: 'ยินดีต้อนรับสู่ครอบครัวของเรา กรุณากรอกข้อมูลให้ครบถ้วน',
+            bannerSubtitle: 'กรุณากรอกข้อมูลให้ครบถ้วน',
             sectionCourse: 'ข้อมูลการสมัคร',
             sectionCourseSub: 'เลือกหลักสูตรที่ต้องการเข้าศึกษา',
             labelLevel: 'ระดับการศึกษา',
@@ -145,7 +145,7 @@ export const translations = {
         },
         apply: {
             bannerTitle: 'Online Application Form',
-            bannerSubtitle: 'Welcome to our family, please fill in the information completely',
+            bannerSubtitle: 'Please fill in the information completely',
             sectionCourse: 'Application Information',
             sectionCourseSub: 'Select the curriculum you want to study',
             labelLevel: 'Education Level',
