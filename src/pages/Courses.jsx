@@ -15,9 +15,9 @@ export default function Courses() {
     const majorsData = t('courses.majors');
 
     const levelImages = {
-        pvc: "public/pic/ปวช.webp",
-        pws: "public/pic/ปวส.webp",
-        bachelor: "public/pic/ปตรี.webp"
+        pvc: "/pic/ปวช.webp",
+        pws: "/pic/ปวส.webp",
+        bachelor: "/pic/ปตรี.webp"
     };
 
     const tabKeys = ['pvc', 'pws', 'bachelor'];
