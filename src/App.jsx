@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Apply from './pages/Apply';
 import Courses from './pages/Courses';
 import News from './pages/News';
+import Chatbot from './components/ChatWidget';
 import { LoadingProvider } from './contexts/LoadingContext';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="news" element={<News />} />
         </Route>
       </Routes>
+      <Chatbot />
     </LoadingProvider>
   );
 }

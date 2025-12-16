@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://yoshihiko.app.n8n.cloud',
+        target: 'https://porlaaa.app.n8n.cloud',
         changeOrigin: true,
         secure: true,
         rewrite: (path) =>

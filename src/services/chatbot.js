@@ -1,35 +1,41 @@
-const N8N_CHATBOT_WEBHOOK_URL =
-  "https://porlaaa.app.n8n.cloud/webhook-test/chatbot";
+const N8N_CHAT_URL =
+  "https://porlaaa.app.n8n.cloud/webhook/chatbot";
 
-const FALLBACK_MESSAGE = "ขออภัยครับ ระบบไม่สามารถตอบได้ในขณะนี้ 🙏";
+const SESSION_ID_KEY = "n8n_chat_session";
 
-export async function postToChatbot(question) {
-  const response = await fetch(N8N_CHATBOT_WEBHOOK_URL, {
-    method: "POST",
+function getSessionId() {
+  let sessionId = localStorage.getItem(SESSION_ID_KEY);
+  if (!sessionId) {
+    sessionId = "web-" + crypto.randomUUID();
+    localStorage.setItem(SESSION_ID_KEY, sessionId);
+  }
+  return sessionId;
+}
+
+export async function postToChatbot(message) {
+  const sessionId = getSessionId();
+
+  const res = await fetch(N8N_CHAT_URL, {
+    method: "POST",                    // ✅ สำคัญ
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ chatInput: question }),
+    body: JSON.stringify({             // ✅ ส่ง payload ถูกต้อง
+      message,
+      sessionId,
+    }),
   });
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}`);
+  const text = await res.text();        // อ่าน raw
+
+  if (!res.ok) {
+    throw new Error("n8n webhook error");
   }
 
-  const text = await response.text();
-
-  // กันกรณี body ว่าง
-  if (!text.trim()) {
-    throw new Error("Empty response body");
+  if (!text) {
+    throw new Error("Empty response from server");
   }
 
-  let data;
-  try {
-    data = JSON.parse(text);
-  } catch {
-    // ถ้า backend ส่ง text ตรง ๆ
-    return text;
-  }
-
-  return data.response || FALLBACK_MESSAGE;
+  const data = JSON.parse(text);        // parse JSON
+  return data.output || "ไม่มีข้อความตอบกลับ";
 }
