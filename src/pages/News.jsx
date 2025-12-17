@@ -1,6 +1,6 @@
 // src/pages/News.jsx
 import { useEffect, useState } from "react";
-import { fetchContent } from "../services/api";
+import { fetchContent } from "../services/cms";
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 

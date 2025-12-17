@@ -3,7 +3,7 @@ import logo from '../assets/logo.jpg';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { fetchContent } from '../services/api';
+import { fetchContent } from '../services/cms';
 
 export default function Home() {
     const { hash } = useLocation();

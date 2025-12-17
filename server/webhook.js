@@ -1,12 +1,21 @@
-import { sendToSession } from "./sse.js";
+// server/webhook.js
+import { sendToClient } from "./sse.js";
 
-export function webhookHandler(req, res) {
-  const { sessionId, response, message } = req.body;
+export async function webhookHandler(req, res) {
+  const { message, sessionId } = req.body;
 
-  sendToSession(sessionId, {
-    type: "response",
-    message: response || message,
-  });
+  if (!sessionId || !message) {
+    return res.status(400).json({ error: "missing sessionId or message" });
+  }
 
+  console.log("[CHAT]", sessionId, message);
+
+  // 🔥 mock คำตอบ (ตอนหลังค่อยต่อ AI)
+  const botReply = `คุณถามว่า: "${message}"\nเดี๋ยวผมช่วยหาคำตอบให้นะครับ 🙂`;
+
+  // 👉 ส่งกลับผ่าน SSE
+  sendToClient(sessionId, botReply);
+
+  // /chat ไม่ต้องส่งข้อความกลับ
   res.json({ success: true });
 }

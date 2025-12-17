@@ -1,41 +1,34 @@
-const N8N_CHAT_URL =
-  "https://porlaaa.app.n8n.cloud/webhook/chatbot";
+// chatbot.js
+const API_BASE = "https://dissectible-arthromeric-marquitta.ngrok-free.dev";
 
-const SESSION_ID_KEY = "n8n_chat_session";
+export async function postToChatbot(message, sessionId) {
+  const controller = new AbortController();
+  // ตั้ง Timeout ไว้ 90 วินาที
+  const timeout = setTimeout(() => controller.abort(), 90000);
 
-function getSessionId() {
-  let sessionId = localStorage.getItem(SESSION_ID_KEY);
-  if (!sessionId) {
-    sessionId = "web-" + crypto.randomUUID();
-    localStorage.setItem(SESSION_ID_KEY, sessionId);
+  try {
+    // แก้ไขจาก ${API_BASE}/chat (ซึ่งเดิม API_BASE มี /webhook ต่อท้าย) 
+    // ให้ยิงไปที่ URL หลัก + /chat เท่านั้น
+    const res = await fetch(`${API_BASE}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, sessionId }),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    if (!res.ok) {
+      // ถ้าสถานะไม่ใช่ 200-299 จะโยน Error ไปให้หน้าจอแสดงว่าระบบมีปัญหา
+      throw new Error(`HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    if (err.name === "AbortError") {
+      return { error: "timeout" };
+    }
+    throw err;
   }
-  return sessionId;
-}
-
-export async function postToChatbot(message) {
-  const sessionId = getSessionId();
-
-  const res = await fetch(N8N_CHAT_URL, {
-    method: "POST",                    // ✅ สำคัญ
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({             // ✅ ส่ง payload ถูกต้อง
-      message,
-      sessionId,
-    }),
-  });
-
-  const text = await res.text();        // อ่าน raw
-
-  if (!res.ok) {
-    throw new Error("n8n webhook error");
-  }
-
-  if (!text) {
-    throw new Error("Empty response from server");
-  }
-
-  const data = JSON.parse(text);        // parse JSON
-  return data.output || "ไม่มีข้อความตอบกลับ";
 }
