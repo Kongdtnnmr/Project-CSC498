@@ -1,7 +1,7 @@
 // src/pages/News.jsx
 import { useEffect, useState } from "react";
 import { fetchContent } from "../services/api";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function News() {
@@ -9,6 +9,7 @@ export default function News() {
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderImages, setSliderImages] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -98,7 +99,7 @@ export default function News() {
         ) : news.length > 0 ? (
           <div className="grid md:grid-cols-3 gap-6">
             {news.map(item => (
-              <div key={item.id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition-shadow">
+              <div key={item.id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setSelectedImage(item.image)}>
                 <img src={item.image} className="h-48 w-full object-cover" alt={item.title} />
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-2 line-clamp-2">{item.title}</h3>
@@ -111,6 +112,30 @@ export default function News() {
           <p className="text-center text-gray-500 mt-10">ยังไม่มีข่าว</p>
         )}
       </div>
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 bg-white/10 text-white rounded-full p-2 cursor-pointer hover:bg-white/20 transition-colors backdrop-blur-sm"
+            >
+              <X size={24} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full Screen View"
+              className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

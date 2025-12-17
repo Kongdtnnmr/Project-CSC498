@@ -149,6 +149,46 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            {/* Official Partner Section */}
+            <div className="bg-white py-16 border-t border-gray-100">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                        {/* Text Content */}
+                        <div className="w-full md:w-3/5 space-y-6">
+                            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-semibold mb-2">
+                                Official Partner
+                            </div>
+                            <h2 className="text-3xl font-bold text-gray-900 leading-tight">
+                                มั่นใจได้ 100% บล็อคเซสฯ คือตัวแทนประชาสัมพันธ์ที่ได้รับการรับรองโดยตรงจาก <span className="text-[#1e3a8a]">"วิทยาลัยเทคโนโลยีวิศวกรรมแหลมฉบัง"</span>
+                            </h2>
+                            <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                                <p>
+                                    สำหรับผู้ปกครองและน้องๆ ที่สนใจศึกษาต่อที่ วิทยาลัยเทคโนโลยีวิศวกรรมแหลมฉบัง
+                                    ท่านสามารถติดตามข้อมูลข่าวสารและสมัครเรียนผ่านทีมงานของ <span className="font-semibold text-gray-800">บริษัท บล็อคเซส จำกัด</span> ได้อย่างมั่นใจ
+                                </p>
+                                <p>
+                                    เราคือพันธมิตรอย่างเป็นทางการ (Official Partner) ที่ได้รับมอบหมายโดยตรงจากท่านผู้อำนวยการ <span className="font-semibold text-gray-800">ดร. ทรรศนะ บุญขวัญ</span>
+                                    ให้ดูแลด้านข้อมูลและการประชาสัมพันธ์หลักสูตร เพื่ออำนวยความสะดวกให้แก่ทุกท่านในการเข้าถึงโอกาสทางการศึกษาที่ดีที่สุด
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Certification Image */}
+                        <div className="w-full md:w-2/5">
+                            <div
+                                className="relative rounded-lg overflow-hidden shadow-xl border border-gray-200 cursor-pointer group hover:shadow-2xl transition-all duration-300"
+                                onClick={() => setSelectedImage("public/pic/หนังสือแต่งตั้ง_page-0001.jpg")}
+                            >
+                                <img
+                                    src="/pic/หนังสือแต่งตั้ง_page-0001.jpg"
+                                    alt="Certification Letter"
+                                />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Promotion Banner */}
             <div className="bg-[#f0f0f0] py-12 flex justify-center">
@@ -257,23 +297,21 @@ export default function Home() {
             {/* Image Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                    className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-95 backdrop-blur-sm"
                     onClick={() => setSelectedImage(null)}
                 >
-                    <div
-                        className="relative max-w-4xl max-h-[90vh] flex items-center justify-center"
-                        onClick={(e) => e.stopPropagation()}
-                    >
+                    <div className="min-h-screen w-full flex items-center justify-center p-4">
                         <button
                             onClick={() => setSelectedImage(null)}
-                            className="absolute -top-12 right-0 bg-white/10 text-white rounded-full p-2 cursor-pointer hover:bg-white/20 transition-colors backdrop-blur-sm"
+                            className="fixed top-4 right-4 z-[60] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
                         >
-                            <X size={24} />
+                            <X size={30} />
                         </button>
                         <img
                             src={selectedImage}
                             alt="Full Screen View"
-                            className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
+                            className="w-full max-w-3xl h-auto object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-200"
+                            onClick={(e) => e.stopPropagation()}
                         />
                     </div>
                 </div>

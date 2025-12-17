@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Wallet, GraduationCap, ChevronsRight } from 'lucide-react';
+import { Wallet, GraduationCap, ChevronsRight, X } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { courseDetails } from '../data/courseDetails';
@@ -12,13 +12,18 @@ export default function Courses() {
 
     // Get translated data
     const levels = t('courses.levels');
-    const majorsData = t('courses.majors');
+    const departmentHeaders = t('courses.headers');
+
+    const [expandedDepartment, setExpandedDepartment] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const levelImages = {
         pvc: "/pic/ปวช.webp",
         pws: "/pic/ปวส.webp",
         bachelor: "/pic/ปตรี.webp"
     };
+
+
 
     const tabKeys = ['pvc', 'pws', 'bachelor'];
 
@@ -84,12 +89,9 @@ export default function Courses() {
 
                             {/* List */}
                             <div className="divide-y divide-gray-100">
-                                {majorsData[activeTabKey].map((course, index) => {
+                                {Object.values(courseDetails[activeTabKey] || {}).map((course, index) => {
                                     const isExpanded = expandedMajor === index;
-
-                                    // Get details from our data file using keys and index
-                                    // This bypasses the name matching which is fragile with bilingual names
-                                    const details = courseDetails[activeTabKey]?.[index]?.[language];
+                                    const details = course[language];
 
                                     return (
                                         <div key={index}>
@@ -98,7 +100,7 @@ export default function Courses() {
                                                 onClick={() => setExpandedMajor(isExpanded ? null : index)}
                                             >
                                                 <ChevronsRight className={`text-[#8B2635] flex-shrink-0 transition-transform ${isExpanded ? 'rotate-90' : ''}`} size={20} />
-                                                <span className="text-[#8B2635] font-bold text-lg">{course}</span>
+                                                <span className="text-[#8B2635] text-lg">{details?.name || details?.title}</span>
                                             </div>
 
                                             {isExpanded && (
@@ -122,6 +124,19 @@ export default function Courses() {
                                                                     ))}
                                                                 </ul>
                                                             </div>
+
+                                                            {details.studyPlan && (
+                                                                <div>
+                                                                    <h4 className="text-xl font-bold text-[#00B4D8] mb-2">
+                                                                        {language === 'TH' ? 'แผนการเรียน' : 'Study Plan'}
+                                                                    </h4>
+                                                                    <ul className="list-disc list-inside text-gray-600 space-y-1 ml-2">
+                                                                        {details.studyPlan.map((item, i) => (
+                                                                            <li key={i}>{item}</li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            )}
 
                                                             <div>
                                                                 <h4 className="text-xl font-bold text-[#00B4D8] mb-2">
@@ -156,6 +171,115 @@ export default function Courses() {
                         </div>
                     </div>
                 </div>
+
+                {/* Study Departments Section */}
+                <div className="mt-12 w-full">
+                    {activeTabKey === 'bachelor' ? (
+                        <div className="w-full">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {
+                                    [
+                                        { id: 1, image: "/pic/pic ปตรี/1.webp" },
+                                        { id: 2, image: "/pic/pic ปตรี/2.webp" },
+                                        { id: 3, image: "/pic/pic ปตรี/3.webp" },
+                                        { id: 4, image: "/pic/pic ปตรี/4.webp" },
+                                        { id: 5, image: "/pic/pic ปตรี/5.webp" },
+                                        { id: 6, image: "/pic/pic ปตรี/6.webp" },
+                                        { id: 7, image: "/pic/pic ปตรี/7.webp" },
+                                        { id: 8, image: "/pic/pic ปตรี/8.webp" },
+                                        { id: 9, image: "/pic/pic ปตรี/9.webp" },
+                                        { id: 10, image: "/pic/pic ปตรี/10.webp" },
+                                        { id: 11, image: "/pic/pic ปตรี/11.webp" },
+                                    ].map((course) => (
+                                        <div
+                                            key={course.id}
+                                            className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden aspect-square hover:shadow-md transition-shadow cursor-pointer"
+                                            onClick={() => setSelectedImage({ src: course.image, type: 'bachelor' })}
+                                        >
+                                            <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400">
+                                                <img
+                                                    src={course.image}
+                                                    alt={`Bachelor Course ${course.id}`}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                    ))}
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="bg-white shadow-sm border border-gray-100 rounded-lg overflow-hidden">
+                            {/* Red Header matching the requirement */}
+                            <div className="bg-[#8B2635] text-white py-4 px-6 text-xl font-bold">
+                                {departmentHeaders && departmentHeaders[activeTabKey]}
+                            </div>
+                            <div className="divide-y divide-gray-100 p-6 space-y-4">
+                                {Object.values(courseDetails[activeTabKey] || {}).map((course, idx) => {
+                                    const deptName = course[language]?.departmentName || course[language]?.title;
+                                    const deptImage = course.scheduleImage;
+                                    const isDeptExpanded = expandedDepartment === idx;
+
+                                    return (
+                                        <div key={idx} className="flex flex-col">
+                                            <div
+                                                className={`flex items-start gap-3 text-gray-700 cursor-pointer hover:text-blue-900 transition-colors ${isDeptExpanded ? 'font-semibold text-blue-900' : ''}`}
+                                                onClick={() => setExpandedDepartment(isDeptExpanded ? null : idx)}
+                                            >
+                                                <ChevronsRight className={`text-[#8B2635] flex-shrink-0 mt-1 transition-transform ${isDeptExpanded ? 'rotate-90' : ''}`} size={20} />
+                                                <span className="font-medium text-lg leading-relaxed">{deptName}</span>
+                                            </div>
+
+                                            {/* Expandable Image Section */}
+                                            {isDeptExpanded && (
+                                                <div className="mt-4 ml-8 animate-in slide-in-from-top-2 duration-300">
+                                                    {deptImage ? (
+                                                        <div
+                                                            className="rounded-lg overflow-hidden border border-gray-200 shadow-md cursor-pointer hover:opacity-95 transition-opacity"
+                                                            onClick={() => setSelectedImage({ src: deptImage, type: 'schedule' })}
+                                                        >
+                                                            <img
+                                                                src={deptImage}
+                                                                alt={`${deptName} Schedule`}
+                                                                className="w-full h-auto object-cover"
+                                                            />
+                                                        </div>
+                                                    ) : (
+                                                        <div className="bg-gray-50 border border-gray-100 rounded-lg p-8 text-center text-gray-400">
+                                                            <p>{t('courses.noScheduleData')}</p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )}
+                </div>
+                {/* Image Modal */}
+                {selectedImage && (
+                    <div
+                        className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-95 backdrop-blur-sm"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <div className="min-h-screen w-full flex items-center justify-center p-4 md:p-8">
+                            <button
+                                onClick={() => setSelectedImage(null)}
+                                className="fixed top-4 right-4 z-[60] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
+                            >
+                                <X size={32} />
+                            </button>
+                            <img
+                                src={selectedImage.src}
+                                alt="Full Size"
+                                className={`w-full h-auto object-contain rounded-md shadow-2xl animate-in zoom-in-95 duration-200 ${selectedImage.type === 'schedule' ? 'max-w-8xl' : 'max-w-4xl'
+                                    }`}
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

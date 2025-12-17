@@ -1,7 +1,9 @@
 export const courseDetails = {
     pws: {
         0: { // Mechanical Technology
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคนิคเครื่องกล (กลุ่มอาชีพเครื่องกล และยานยนต์ ).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคนิคเครื่องกล (กลุ่มอาชีพเครื่องกล และยานยนต์ )",
                 title: "สาขาวิชาเทคนิคเครื่องกล",
                 description: "มุ่งเน้นการเรียนรู้ด้านเครื่องยนต์แก๊สโซลีน เครื่องยนต์ดีเซล ระบบส่งกำลังรถยนต์ ช่วงล่างรถยนต์ ยานยนต์ไฟฟ้า งานปรับอากาศรถยนต์ งานสีรถยนต์ ระบบฉีดเชื้อเพลิงอิเล็กทรอนิกส์ การวิเคราะห์ปัญหาเทคนิคยานยนต์ และประสบการณ์ปฏิบัติงานจริงในสถานประกอบการ",
                 careers: [
@@ -20,6 +22,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Mechanical Technique Program (Mechanical and Automotive Career Group)",
                 title: "High Vocational Course in Automotive Techniques : Automotive Technique Program",
                 description: "Automotive Technique Program focusing on Gasoline engine work Diesel engine, automotive power transmission Car lower part Electric car work Automotive air conditioning work, automotive paint, electronic fuel injection system Automotive technical problem analysis Practical experience in the workplace",
                 careers: [
@@ -38,7 +41,9 @@ export const courseDetails = {
             }
         },
         1: { // Electrical Power
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขางานไฟฟ้า",
                 description: "สาขางานไฟฟ้า: หลักสูตรการควบคุมไฟฟ้า - ไฟฟ้ากำลัง อิเล็กทรอนิกส์ ไฟฟ้าสื่อสาร ไฟฟ้าคอมพิวเตอร์ การปฏิบัติงานไฟฟ้าอาคาร การบำรุงรักษาไฟฟ้าอาคาร การอ่านและเขียนแบบไฟฟ้า การผลิตและอุตสาหกรรม เครื่องทำความเย็น นิวเมติกส์และหุ่นยนต์",
                 careers: [
@@ -58,6 +63,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Electrical Program (Electrical Energy and Electronics Career Group)",
                 title: "High Vocational Certificate Program in Electrical Control : Electrical Control Program",
                 description: "Electrical Control Program: Electrical Control Program - Electrical Power - Electronic Electronics - Communication Electricity - Computer Electricity - Electrical Building Operation - Building Electrical Maintenance - Electrical Reading and Drawing - Manufacturing and Industry - Refrigeration - Pneumatic and robotics",
                 careers: [
@@ -113,7 +119,9 @@ export const courseDetails = {
             }
         },
         3: { // Industrial Electronics (NEW ITEM - will be inserted at index 3)
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคโนโลยีอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคโนโลยีอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาอิเล็กทรอนิกส์อุตสาหกรรม",
                 description: "หลักสูตรนี้มุ่งเน้นวิทยาศาสตร์ประยุกต์ที่รองรับกระบวนการผลิต ครอบคลุมพื้นฐานความรู้ด้านวิศวกรรมเครื่องกล อิเล็กทรอนิกส์ ไฟฟ้ากำลัง ระบบควบคุม เทคโนโลยีการสื่อสารและคอมพิวเตอร์ เสริมด้วยความรู้ด้านวิศวกรรมอุตสาหการเพื่อการออกแบบการผลิตและการใช้งานในภาคอุตสาหกรรม เน้นการเรียนรู้เชิงปฏิบัติในห้องปฏิบัติการ เช่น การออกแบบระบบอัตโนมัติทางอุตสาหกรรม หุ่นยนต์อุตสาหกรรม เครื่องจักรควบคุมด้วยคอมพิวเตอร์ การประยุกต์ใช้การออกแบบ การวิเคราะห์ และการผลิตด้วยคอมพิวเตอร์ การสร้างผลิตภัณฑ์และนวัตกรรมเมคคาทรอนิกส์ รวมถึงโซลูชันเฉพาะทางแบบบูรณาการ",
                 careers: [
@@ -135,6 +143,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Electronic Technology Program (Electrical Energy and Electronics Career Group)",
                 title: "lndustrial Electronics Program",
                 description: "This course is designed to focus on applied science that supports the production process. It covers the fundamentals of knowledge in mechanical engineering, electronics, electrical power, control systems, communication technology and computers. This knowledge is supplemented with knowledge in industrial engineering for production design and usage in the industrial sector. Teaching and learning focuses on allowing students to do practical work in laboratories such as the design of industrial automation systems, industrial robots, machinery controlled by computer, automatic loading and the application of computer aided design, analysis, and production, creation of mechatronic products and innovations, as well as integrated specific solutions with mechatronic science.",
                 careers: [
@@ -158,12 +167,15 @@ export const courseDetails = {
         },
         // Old Index 3 -> New Index 4: Sports Business
         4: {
-            TH: { title: "สาขาวิชาการจัดการธุรกิจการกีฬา", description: "รายละเอียดอยู่ระหว่างการปรับปรุง", careers: [], education: [] },
-            EN: { title: "Sports Business Management", description: "Details updating soon...", careers: [], education: [] }
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ สาขาวิชาการจัดการธุรกิจการกีฬา.webp",
+            TH: { departmentName: "ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ สาขาวิชาการจัดการธุรกิจการกีฬา", title: "สาขาวิชาการจัดการธุรกิจการกีฬา", description: "รายละเอียดอยู่ระหว่างการปรับปรุง", careers: [], education: [] },
+            EN: { departmentName: "Health and Beauty Industry Type: Health Promotion Service Career Group, Sports Business Management Program", title: "Sports Business Management", description: "Details updating soon...", careers: [], education: [] }
         },
         // Old Index 4 -> New Index 5: Mechatronics
         5: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์และหุ่นยนต์และระบบอัตโนมัติ).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์และหุ่นยนต์และระบบอัตโนมัติ)",
                 title: "สาขางานเมคคาทรอนิกส์และหุ่นยนต์",
                 description: "การวางแผนการดำเนินงานตามหลักการและกระบวนการด้วยการจัดการคุณภาพ การอนุรักษ์พลังงานและสิ่งแวดล้อม กฎหมายที่เกี่ยวข้อง การปฏิบัติงานเมคคาทรอนิกส์และหุ่นยนต์ตามแบบแผนที่เหมาะสม เลือกใช้เครื่องมือและอุปกรณ์ให้ถูกต้องและปลอดภัย การบำรุงรักษา ทดสอบ และติดตั้งอุปกรณ์หุ่นยนต์ การเขียนโปรแกรมควบคุมอัตโนมัติร่วมกับหุ่นยนต์อุตสาหกรรม การออกแบบและติดตั้งระบบควบคุมไฟฟ้าและเครื่องกลแบบมือและแบบอัตโนมัติ การเขียนแบบ ออกแบบ และผลิตชิ้นงานเมคคาทรอนิกส์และหุ่นยนต์ด้วยโปรแกรมคอมพิวเตอร์ การประยุกต์ใช้เซนเซอร์และทรานสดิวเซอร์ร่วมกับระบบหุ่นยนต์อัตโนมัติ",
                 careers: [
@@ -181,6 +193,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Mechatronics and Robotics Program (Mechatronics, Robotics and Automation Career Group)",
                 title: "Mechatronics And Robotic Program",
                 description: "Planning operations according to principles and processes with quality management, energy conservation and environmental, related laws, mechatronics and robot operations according to the appropriate plan, choose the right tools and equipment for correctly and safely maintenance, test and installation of robot equipment, writing an automatic control program together with an industrial robot, design and installation of manual and automatic electrical and mechanical control systems, drawing, design, and manufacture of work in mechatronics and robotics using computer programs, apply sensors and transducers together with the automation robot system, design, control, installation and maintenance of pneumatic and hydraulic systems.",
                 careers: [
@@ -199,7 +212,9 @@ export const courseDetails = {
         },
         // Old Index 5 -> New Index 6: Accounting
         6: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี ).webp",
             TH: {
+                departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี )",
                 title: "สาขาวิชาการบัญชี",
                 description: "จัดหลักสูตรเน้นสมรรถนะวิชาชีพด้านความรู้หลักการทั่วไป เทคนิคเชิงลึก การวิเคราะห์ การตัดสินใจ การวางแผนแก้ปัญหา การประสานงาน การประเมินผลการปฏิบัติงาน การใช้เทคโนโลยีสารสนเทศเพื่อการเรียนรู้และพัฒนาอาชีพ ทักษะการคิดวิเคราะห์ แก้ปัญหา วางแผน บริหารจัดการ และปฏิบัติงานวิชาชีพบัญชีตามมาตรฐานและกฎหมายที่เกี่ยวข้อง ปฏิบัติหน้าที่ผู้ช่วยวิเคราะห์ข้อมูลทางการเงิน ตรวจสอบระบบบัญชี และงานภาษีอากรตามประมวลรัษฎากร",
                 careers: [
@@ -213,6 +228,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Business Administration Type: Accounting Program (Finance and Accounting Career Group)",
                 title: "Accounting Program",
                 description: "We Organize courses with an emphasis on professional competency in Knowledge of theoretical and in-depth techniques within the scope of work ,principles of analysis, decision making, planning and problem solving, Coordination principles , evaluating job performance, career management, safety principles, principles of information technology for learning and career development. Skills, including skills in choosing and applying methods, tools and materials in operation, critical thinking skills and problem-solving skills in the workplace, planning skills, management, coordination and evaluation, career practice, computer and information technology skills for lifelong learning skills, health and safety skills. In terms of application ability, namely knowledge application, professional skills, information technology and communication in problem solving and accounting practice, managing, coordinating, and evaluating accounting professional performance by oneself.",
                 careers: [
@@ -228,13 +244,16 @@ export const courseDetails = {
         },
         // Old Index 6 -> New Index 7: Marketing
         7: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด).webp",
             TH: {
+                departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด)",
                 title: "สาขาวิชาการตลาด",
                 description: "มุ่งสร้างนักบริหารการตลาดหรือเจ้าของธุรกิจ เตรียมความพร้อมด้านความคิดสร้างสรรค์ด้วยการเรียนการสอนเน้นปฏิบัติจริงต่อเนื่อง เรียนรู้การวิเคราะห์การตลาดเชิงลึก",
                 careers: ["นักวิเคราะห์การตลาด", "เจ้าหน้าที่การตลาดอินเทอร์เน็ต", "เจ้าหน้าที่ลูกค้าสัมพันธ์", "ตัวแทนขาย", "เจ้าหน้าที่วิจัยการตลาด"],
                 education: [{ level: "ปริญญาตรี", items: ["การจัดการธุรกิจดิจิทัล", "ธุรกิจระหว่างประเทศ", "การบริหารและการจัดการสมัยใหม่", "การตลาดดิจิทัล", "บริหารธุรกิจ", "การจัดการองค์กรและทรัพยากรมนุษย์", "เศรษฐศาสตร์", "การจัดการโลจิสติกส์", "การจัดการทั่วไป"] }]
             },
             EN: {
+                departmentName: "Business Administration Type: Marketing Program (Marketing Career Group)",
                 title: "Marketing Program",
                 description: "We aim to make you a marketing executive or business owner. Preparing students for creativity by teaching and learning through continuously real practice. Students will learn in-depth marketing analysis.",
                 careers: ["Market Analyst", "Internet Marketing Officer", "Customer Relations Officer", "Sales representative", "Marketing Research Officer"],
@@ -243,13 +262,16 @@ export const courseDetails = {
         },
         // Old Index 7 -> New Index 8: Logistics
         8: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาการจัดการโลจิสติกส์และซัพพลายเชน (กลุ่มอาชีพโลจิสติกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาการจัดการโลจิสติกส์และซัพพลายเชน (กลุ่มอาชีพโลจิสติกส์)",
                 title: "สาขาวิชาการจัดการโลจิสติกส์",
                 description: "เน้นเพิ่มและพัฒนาทักษะการคิดวิเคราะห์ วางแผน และแก้ปัญหาในงานโลจิสติกส์ตั้งแต่ต้นน้ำ (แหล่งวัตถุดิบ) ถึงปลายน้ำ (ลูกค้า) การจัดการโลจิสติกส์ที่เกี่ยวข้องกับวัตถุดิบ การผลิต การจัดเก็บ การขนส่ง การบริหารสินค้าคงคลัง ขับเคลื่อนเศรษฐกิจของประเทศ",
                 careers: ["บริการขนส่ง", "การจัดการคลังสินค้าและจัดเก็บ", "วางแผนการผลิต", "วางแผนการกระจายสินค้าและการขาย", "นำเข้าและส่งออกสินค้า", "ธุรกิจระหว่างประเทศ", "ผู้ให้บริการโลจิสติกส์"],
                 education: [{ level: "ปริญญาตรี", items: ["การจัดการโลจิสติกส์", "การจัดการ", "บริหารธุรกิจ"] }]
             },
             EN: {
+                departmentName: "Logistics Industry Type: Logistics and Supply Chain Management Program (Logistics Career Group)",
                 title: "Logistics Management Program",
                 description: "We emphasize to increase and develop critical thinking skills, analyzing, planning and solving problems in the career of logistics from upstream (source of raw materials) to downstream (customers). During the time that the goods or services reach the customers, all of them need to manage the logistics involved in the raw materials, production, storage, delivery, inventory management, etc. Therefore, the logistics and supply chain is driving the country's economy both now and in the future.",
                 careers: ["Transportation services", "Warehouse and storage management", "Production Planning", "Distribution planning and selling", "Import and export products", "International business", "Logistics service providers"],
@@ -258,13 +280,16 @@ export const courseDetails = {
         },
         // Old Index 8 -> New Index 9: IT
         9: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีสารสนเทศ (กลุ่มอาชีพซอฟต์แวร์และโปรแกรมประยุกต์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีสารสนเทศ (กลุ่มอาชีพซอฟต์แวร์และโปรแกรมประยุกต์)",
                 title: "สาขาวิชาเทคโนโลยีสารสนเทศ : lnformation Technology Program",
                 description: "การใช้โปรแกรมต่างๆ ระบบงานกราฟิก ระบบเทคโนโลยีสารสนเทศ/เครือข่าย ออกแบบ พัฒนา และวิเคราะห์ระบบ",
                 careers: ["ที่ปรึกษาด้านเทคโนโลยีสารสนเทศ", "นักพัฒนาเว็บไซต์", "นักพัฒนาเกม", "นักเขียนโปรแกรมบนมือถือ", "IT Support", "System engineer"],
                 education: [{ level: "แนวทางการศึกษาต่อ", items: ["สาขาดิจิทัลมีเดีย", "สาขาเทคโนโลยีสารสนเทศ", "สาขาเกมและสื่ออินเทอร์แอคทีฟ", "สาขาวิศวกรรมคอมพิวเตอร์", "สาขาแอนิเมชั่น และมัลติมีเดีย", "สาขากราฟิกดีไซน์"] }]
             },
             EN: {
+                departmentName: "Digital Industry and IT Type: Information Technology Program (Software and Application Career Group)",
                 title: "lnformation Technology Program",
                 description: "Software usage, Graphic systems, IT/Network systems, System design, development and analysis.",
                 careers: ["IT Consultant", "Web Developer", "Game Developer", "Mobile Developer", "IT Support", "System Engineer"],
@@ -273,13 +298,16 @@ export const courseDetails = {
         },
         // Old Index 9 -> New Index 10: Multimedia
         10: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาศิลปกรรมและเศรษฐกิจสร้างสรรค์ สาขาวิชาดิจิทัลกราฟิก (กลุ่มอาชีพศิลปะและการออกแบบ).webp",
             TH: {
+                departmentName: "ประเภทวิชาศิลปกรรมและเศรษฐกิจสร้างสรรค์ สาขาวิชาดิจิทัลกราฟิก (กลุ่มอาชีพศิลปะและการออกแบบ)",
                 title: "สาขาวิชามัลติมีเดีย : Multimedia Program",
                 description: "เข้มข้นด้วยหลักสูตรที่ผสมผสานศาสตร์และศิลป์แห่งการสื่อสารอย่างสร้างสรรค์ เน้นการปฏิบัติจริงในศูนย์ปฏิบัติการที่เพียบพร้อมและทันสมัย พร้อมสนับสนุนการแสดงผลงานระดับนานาชาติ เพื่อสร้าง “นักสื่อสารหัวใจสร้างสรรค์”",
                 careers: ["นักออกแบบสื่อปฏิสัมพันธ์", "นักออกแบบสื่อสร้างสรรค์ประเภทต่างๆ", "ผู้เชี่ยวชาญด้านศิลปะการออกแบบด้วยรูปภาพ", "ตัวอักษรหรือภาพเคลื่อนไหว", "นักออกแบบกราฟิก", "ผู้กำกับศิลป์", "ช่างภาพ"],
                 education: [{ level: "แนวทางการศึกษาต่อ", items: ["สาขาวิชามัลติมีเดีย", "สาขาวิชาภาพยนตร์และสื่อดิจิตอล", "สาขาวิชานวัตกรรมการสื่อสาร", "สาขาวิชานวัตกรรมสื่อสารสังคม", "สาขาดิจิทัลอาร์ต", "สาขาคอมพิวเตอร์แอนิเมชันและวิชวลเอฟเฟกต์", "สาขาการออกแบบอินเทอร์แอคทีฟและเกม", "สาขาการออกแบบกราฟิก", "สาขาวิชาการออกแบบสื่อสารดิจิทัล"] }]
             },
             EN: {
+                departmentName: "Fine Arts and Creative Economy Type: Digital Graphic Program (Arts and Design Career Group)",
                 title: "Multimedia Program",
                 description: "Intensive curriculum combining art and science of creative communication. Practical training in modern laboratories. Supporting international exhibition of works to create 'Creative Communicators'.",
                 careers: ["Interactive Media Designer", "Creative Media Designer", "Image Design Specialist", "Typography or Animation", "Graphic Designer", "Art Director", "Photographer"],
@@ -303,12 +331,22 @@ export const courseDetails = {
         // 10: Multi
         // 11: Health
         // 12: EV
-        11: { TH: { title: "สาขาวิชาการจัดการงานบริการสถานพยาบาล", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] }, EN: { title: "Healthcare Service Management", description: "Details updating soon...", careers: [], education: [] } },
-        12: { TH: { title: "สาขาวิชาเทคนิคยานยนต์ไฟฟ้า", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] }, EN: { title: "Electric Vehicle Technology", description: "Details updating soon...", careers: [], education: [] } }
+        11: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม สาขาวิชาการจัดการงานบริการสถานพยาบาล (กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ).webp",
+            TH: { departmentName: "ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม สาขาวิชาการจัดการงานบริการสถานพยาบาล (กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ)", title: "สาขาวิชาการจัดการงานบริการสถานพยาบาล", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { departmentName: "Health and Beauty Industry Type: Healthcare Facility Service Management Program (Health Promotion Service Career Group)", title: "Healthcare Service Management", description: "Details updating soon...", careers: [], education: [] }
+        },
+        12: {
+            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม กลุ่มอาชีพเครื่องกลและยานยนต์ สาขาวิชาเทคนิคยานยนต์ไฟฟ้า.webp",
+            TH: { departmentName: "ประเภทวิชาอุตสาหกรรม กลุ่มอาชีพเครื่องกลและยานยนต์ สาขาวิชาเทคนิคยานยนต์ไฟฟ้า", title: "สาขาวิชาเทคนิคยานยนต์ไฟฟ้า", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { departmentName: "Industry Type: Mechanical and Automotive Career Group, Electric Vehicle Technique Program", title: "Electric Vehicle Technology", description: "Details updating soon...", careers: [], education: [] }
+        }
     },
     pvc: {
         0: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างยนต์ (กลุ่มอาชีพเครื่องกล และยานยนต์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างยนต์ (กลุ่มอาชีพเครื่องกล และยานยนต์)",
                 title: "สาขาวิชาช่างยนต์ : Automotive Program",
                 description: "สาขาวิชาช่างยนต์ คือ สาขาวิชาที่เรียนเกี่ยวกับการบำรุงรักษารถยนต์ เช่น การบำรุงรักษาระบบเครื่องยนต์ ระบบเครื่องล่างรถยนต์ ระบบส่งกำลังรถยนต์ ระบบไฟฟ้าและระบบปรับอากาศรถยนต์ เป็นต้น รวมไปถึงรถจักรยานยนต์และเครื่องยนต์ต่างๆ ที่ใช้ในชีวิตประจำวันหรือใช้ในการเกษตร การเรียนในสาขาวิชาช่างยนต์นั้นจะเน้นการฝึกปฏิบัติและทฤษฎีควบคู่กัน เพื่อให้ผู้เรียนมีทักษะในสายงานช่างยนต์",
                 careers: [
@@ -325,6 +363,7 @@ export const courseDetails = {
                 ]
             },
             EN: { // Keeping simple EN if not provided, or inferring titles from user header
+                departmentName: "Industry Type: Auto Mechanic Program (Mechanical and Automotive Career Group)",
                 title: "Automotive Program",
                 description: "Study of automotive maintenance, engines, suspensions, transmissions, electrical systems, and air conditioning. Emphasis on both theory and practice.",
                 careers: ["Automotive Service Center Technician", "Maintenance Technician", "Industrial Technician", "Garage Technician", "Vehicle Inspector", "Machine Operator"],
@@ -335,7 +374,9 @@ export const courseDetails = {
             }
         },
         1: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาช่างไฟฟ้า : Electrical Power Program",
                 description: "เข้าถึงด้าน ระบบความปลอดภัยในงานไฟฟ้า การเรียนรู้กฎและมาตรฐานทางไฟฟ้า การออกแบบและการประมาณราคาติดตั้งไฟฟ้าในอาคาร การเขียนแบบและการคำนวณวงจรไฟฟ้าเบื้องต้น การซ่อมบำรุงรักษาของอุปกรณ์เครื่องใช้ไฟฟ้า การวิเคราะห์และวิธีการแก้ปัญหาในระบบไฟฟ้าเบื้องต้น การพันและการทดสอบมอเตอร์ 1 เฟส และ 3 เฟส การควบคุมมอเตอร์ไฟฟ้าและเครื่องจักรกลไฟฟ้า ระบบควบคุมในโรงงานอุตสาหกรรมและสถานประกอบการต่างๆจนมีทักษะและการพัฒนาเพื่อก้าวสู่ทางด้านเทคโนโลยีในปัจจุบันและอนาคต",
                 careers: [
@@ -353,6 +394,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Electrical Power Program (Electrical Energy and Electronics Career Group)",
                 title: "Electrical Power Program",
                 description: "Safety in electrical work, electrical laws and standards, building electrical installation design and estimation, basic circuit calculations, appliance maintenance, motor testing (1-phase & 3-phase), motor control, and industrial control systems.",
                 careers: ["Electrical Installation Design", "Motor Winding", "Air Conditioning Technician", "Appliance Repair", "Industrial Maintenance", "Telecommunications", "Private Business"],
@@ -363,7 +405,9 @@ export const courseDetails = {
             }
         },
         2: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาช่างอิเล็กทรอนิกส์ : Electronics Program",
                 description: "เรียนรู้ และปฏิบัติงานเกี่ยวกับอิเล็กทรอนิกส์และอิเล็กทรอนิกส์อุตสาหกรรม วงจรไฟฟ้าเบื้องต้น หน่วยวัดทางไฟฟ้า ประเภทของไฟฟ้า กฎของโอห์ม การวิเคราะห์ตรวจซ่อม ต่อ และแก้ไขวงจรแบบต่างๆ การใช้เครื่องมือวัดทางไฟฟ้า การทำงานของอุปกรณ์อิเล็กทรอนิกส์ การต่อแหล่งจ่ายไฟฟ้า การต่อและวิเคราะห์วงจรขยายทรานซิสเตอร์ เครื่องขยายเสียงแบบต่างๆ ปฏิบัติประกอบ-ตรวจซ่อมเครื่องขยายเสียงและอุปกรณ์อิเล็กทรอนิกส์ อุปกรณ์สื่อสารโทรคมนาคม เครื่องเสียงและวีดิโอ",
                 careers: [
@@ -387,6 +431,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Electronics Program (Electrical Energy and Electronics Career Group)",
                 title: "Electronics Program",
                 description: "Study and practice of general and industrial electronics, basic circuits, ohm's law, circuit analysis and repair, usage of electrical measuring instruments, electronic component operation, amplifiers, audio systems, and telecommunications equipment.",
                 careers: ["Electronics Technician", "Equipment Repair Technician", "Electronics Shop Owner", "Appliance Repair (Fans, Rice Cookers)", "Audio/Video Repair", "Mobile Phone Repair", "Satellite Installation", "Sound System Technician", "Microcontroller Programming", "PCB Design"],
@@ -397,7 +442,9 @@ export const courseDetails = {
             }
         },
         3: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์หุ่นยนต์และระบบอัตโนมัติ).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์หุ่นยนต์และระบบอัตโนมัติ)",
                 title: "สาขาวิชาเมคคาทรอนิกส์ : Mechatronics Program",
                 description: "ความรู้พื้นฐานทางด้านเครื่องกล อิเล็กทรอนิกส์ และระบบควบคุม เพื่อให้สามารถเขียนแบบ อ่านแบบเทคนิคโดยใช้คอมพิวเตอร์และระบบสารสนเทศ รวมถึงออกแบบเลือกใช้วัสดุอุตสาหกรรม ปรับแปรรูปงานด้วยเครื่องมือกลเบื้องต้น และติดตั้ง ทดสอบ ควบคุมระบบ อุปกรณ์ไฟฟ้าอุปกรณ์อิเล็กทรอนิกส์เครื่องกลไฟฟ้า นิวเมติกส์และไฮดรอลิกส์ และนำคอมพิวเตอร์มาช่วยในการออกแบบผลิตชิ้นงานและสิ่งประดิษฐ์ รวมถึงกระบวนการผลิตแบบอัตโนมัติ เพื่อให้ผู้จบการศึกษามีความรู้ความสามารถทันต่อการเปลี่ยนแปลงของเทคโนโลยีสมัยใหม่",
                 careers: ["ช่างเทคนิคเมคคาทรอนิกส์", "ฝ่ายตรวจสอบคุณภาพของสินค้าที่ผลิต", "ฝ่ายซ่อมบำรุงเครื่องจักรกลระบบอัตโนมัติในโรงงานอุตสาหกรรม"],
@@ -407,6 +454,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Industry Type: Mechatronics and Robotics Program (Mechatronics, Robotics and Automation Career Group)",
                 title: "Mechatronics Program",
                 description: "Basic knowledge of mechanics, electronics, and control systems. Technical drawing with computers, industrial material selection, machine tooling, installation, testing, and control of electromechanical systems, pneumatics, and hydraulics. Computer-aided design for automation.",
                 careers: ["Mechatronics Technician", "Quality Control Department", "Automated Machinery Maintenance"],
@@ -417,7 +465,9 @@ export const courseDetails = {
             }
         },
         4: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี).webp",
             TH: {
+                departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี)",
                 title: "สาขาวิชาการบัญชี : Accounting Program",
                 description: "สาขาวิชาการบัญชี จัดหลักสูตรการเรียนการสอนโดยเน้นให้ผู้เรียนมีสมรรถนะทางด้านวิชาชีพในด้าน ความรู้เกี่ยวกับหลักการทั่วไปของงานอาชีพเฉพาะ การตัดสินใจ วางแผนแก้ไขปัญหา การเลือกใช้เครื่องมือ วัสดุอุปกรณ์ในงานอาชีพ การใช้เทคโนโลยีสารสนเทศ ด้านทักษะ ได้แก่ ทักษะการเลือกและประยุกต์ใช้ วิธีการ เครื่องมือและวัสดุขั้นพื้นฐานในการปฏิบัติงาน ทักษะการปฏิบัติงานพื้นฐานอาชีพ ทักษะการคิด วิเคราะห์และแก้ปัญหาในการปฏิบัติงาน ทักษะการใช้คอมพิวเตอร์และเทคโนโลยีสารสนเทศเพื่อการเรียนรู้ ตลอดชีวิต ทักษะด้านสุขภาวะและความปลอดภัยในการปฏิบัติงาน ด้านความสามารถในการประยุกต์ใช้ ได้แก่ การวางแผนดําเนินงานตามหลักการและกระบวนการ โดยคำนึงถึงการบริหารงาน ปฏิบัติงานพื้นฐานอาชีพ ด้านการบัญชีตามหลักการและกระบวนการ รวบรวมเอกสารและบันทึกบัญชีของธุรกิจบริการ ธุรกิจซื้อขาย สินค้า และธุรกิจอุตสาหกรรมสำหรับกิจการเจ้าของคนเดียว ห้างหุ้นส่วนและบริษัทจำกัด บันทึกบัญชีโดยใช้ เทคโนโลยีสารสนเทศเพื่องานบัญชี ประยุกต์ใช้ความรู้ ทักษะทางวิชาชีพ เทคโนโลยีสารสนเทศและการสื่อสาร ในการแก้ปัญหาและการปฏิบัติงานด้านการบัญชี",
                 careers: ["พนักงานสำนักงานตรวจสอบบัญชี", "พนักงานบัญชีกิจการเจ้าของคนเดียว", "พนักงานบัญชีธุรกิจบริการ", "พนักงานบัญชีธุรกิจซื้อขายสินค้า", "ลูกจ้างหน่วยงานภาครัฐ และรัฐวิสาหกิจ"],
@@ -427,6 +477,7 @@ export const courseDetails = {
                 ]
             },
             EN: {
+                departmentName: "Business Administration Type: Accounting Program (Finance and Accounting Career Group)",
                 title: "Accounting Program",
                 description: "Focus on professional competency in general accounting principles, decision making, problem solving, and IT usage. Skills in applied accounting methods, basic professional practices, critical thinking, and safety. Application of accounting principles for service, trading, and industrial businesses (sole proprietorships, partnerships, limited companies).",
                 careers: ["Audit Office Staff", "Sole Proprietorship Accountant", "Service Business Accountant", "Trading Business Accountant", "Government/State Enterprise Employee"],
@@ -437,13 +488,16 @@ export const courseDetails = {
             }
         },
         5: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด).webp",
             TH: {
+                departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด)",
                 title: "สาขาวิชาการตลาด",
                 description: "หลักสูตรเน้นการจัดการการตลาด การวิเคราะห์ วิจัย และวางแผนกิจกรรมการตลาดบูรณาการ ทั้งทฤษฎีและปฏิบัติ ส่งเสริมความเชี่ยวชาญเพื่อสร้างประสบการณ์ตรงและรายได้ระหว่างเรียน",
                 careers: ["นักวิเคราะห์การตลาด", "เจ้าหน้าที่การตลาดอินเทอร์เน็ต", "เจ้าหน้าที่ลูกค้าสัมพันธ์", "ตัวแทนขาย", "เจ้าหน้าที่วิจัยการตลาด"],
                 education: [{ level: "ปริญญาตรี", items: ["การจัดการธุรกิจดิจิทัล", "ธุรกิจระหว่างประเทศ", "การบริหารจัดการสมัยใหม่", "การตลาดดิจิทัล"] }]
             },
             EN: {
+                departmentName: "Business Administration Type: Marketing Program (Marketing Career Group)",
                 title: "Marketing Program",
                 description: "Marketing Program to develop learners to understand And knowledge of marketing management Analysis, research, and planning of integrated marketing activities Both theory and practice and organizing extra-curricular activities in the courses by speakers with knowledge and ability in marketing, learning activities Teaching that leads to practical learning, promotes expertise for students Create direct experience and income while studying. By focusing on students to do real work under the current competitive environment of business.",
                 careers: ["Marketing analysts", "Internet marketing staff", "Customer relations staff", "Sales representatives", "Marketing research staff"],
@@ -453,13 +507,16 @@ export const courseDetails = {
             }
         },
         6: {
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีธุรกิจดิจิทัล (กลุ่มอาชีพธุรกิจดิจิทัลและพาณิชย์อิเล็กทรอนิกส์).webp",
             TH: {
+                departmentName: "ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีธุรกิจดิจิทัล (กลุ่มอาชีพธุรกิจดิจิทัลและพาณิชย์อิเล็กทรอนิกส์)",
                 title: "สาขาวิชาคอมพิวเตอร์ธุรกิจ",
                 description: "มุ่งเน้นสร้างนักบริหารจัดการคอมพิวเตอร์ สร้างสรรค์งานธุรกิจและคอมพิวเตอร์ เรียนรู้การใช้ซอฟต์แวร์สำเร็จรูป เทคโนโลยีสารสนเทศ และพาณิชย์อิเล็กทรอนิกส์",
                 careers: ["พนักงานระบบซอฟต์แวร์", "เจ้าหน้าที่คอมพิวเตอร์", "เจ้าหน้าที่สนับสนุนซอฟต์แวร์", "งานอีเลิร์นนิ่ง", "งานสำนักงาน", "ฝ่ายขาย", "เลขานุการ", "นักออกแบบแอพพลิเคชั่นมือถือ"],
                 education: [{ level: "ศึกษาต่อ", items: ["วิทยาการคอมพิวเตอร์", "เทคโนโลยีสารสนเทศ", "เกมและสื่ออินเทอร์แอคทีฟ", "คอมพิวเตอร์ธุรกิจ", "วิศวกรรมคอมพิวเตอร์"] }]
             },
             EN: {
+                departmentName: "Digital Industry and IT Type: Digital Business Technology Program (Digital Business and E-commerce Career Group)",
                 title: "Business Computer Program",
                 description: "Business Computer Program, advancing the world of technology to become computer administrators. Enhancing your potential to a high level by being creative in business and computer management. Learn until expert in using software packages. Information technology and electronic commerce.",
                 careers: ["Use staff in the section with basic credit software systems", "Computer department staff in business units, Software support staff", "E-Learning staff", "Office management staff", "System staff Office work", "Sales", "Sales training", "Secretary", "Senior account or computer", "Mobile application designer for AMC Personnel Management"],
@@ -469,14 +526,55 @@ export const courseDetails = {
             }
         },
         7: {
-            TH: { title: "สาขาวิชาโลจิสติกส์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
-            EN: { title: "Logistics", description: "Details updating soon...", careers: [], education: [] }
+            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาโลจิสติกส์ (กลุ่มอาชีพโลจิสติกส์).webp",
+            TH: { departmentName: "ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาโลจิสติกส์ (กลุ่มอาชีพโลจิสติกส์)", title: "สาขาวิชาโลจิสติกส์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { departmentName: "Logistics Industry Type: Logistics Program (Logistics Career Group)", title: "Logistics", description: "Details updating soon...", careers: [], education: [] }
         }
     },
     bachelor: {
         0: {
             TH: { title: "สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ (วศ.บ.)", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
             EN: { title: "Computer Engineering and AI", description: "Details updating soon...", careers: [], education: [] }
-        }
+        },
+        1: {
+            TH: { title: "สาขาวิศวกรรมโลจิสติกส์ (วศ.บ.)", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Logistics Engineering", description: "Details updating soon...", careers: [], education: [] }
+        },
+        2: {
+            TH: { title: "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว.", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Electrical Engineering", description: "Details updating soon...", careers: [], education: [] }
+        },
+        3: {
+            TH: { title: "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว. วิชาเอก ยานยนต์ไฟฟ้า (EV)", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Electrical Engineering (EV)", description: "Details updating soon...", careers: [], education: [] }
+        },
+        4: {
+            TH: { title: "สาขาวิศวกรรมไฟฟ้า (วศ.บ.) กว. วิชาเอก Data Center", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Electrical Engineering (Data Center)", description: "Details updating soon...", careers: [], education: [] }
+        },
+        5: {
+            TH: { title: "สาขาวิศวกรรมความปลอดภัย (วศ.บ.) จป.", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Safety Engineering", description: "Details updating soon...", careers: [], education: [] }
+        },
+        6: {
+            TH: { title: "สาขาบัญชีบัณฑิต (บช.บ.)", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Accountancy", description: "Details updating soon...", careers: [], education: [] }
+        },
+        7: {
+            TH: { title: "สาขาการจัดการโลจิสติกส์และซัพพลายเชน (บธ.บ.) เรียนออนไลน์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Logistics and Supply Chain Management (Online)", description: "Details updating soon...", careers: [], education: [] }
+        },
+        8: {
+            TH: { title: "สาขาวิศวกรรมอุตสาหการ (วศ.บ.) กว. เรียนออนไลน์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Industrial Engineering (Online)", description: "Details updating soon...", careers: [], education: [] }
+        },
+        9: {
+            TH: { title: "สาขาบัญชีบัณฑิต (บช.บ.) เรียนออนไลน์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Accountancy (Online)", description: "Details updating soon...", careers: [], education: [] }
+        },
+        10: {
+            TH: { title: "สาขานวัตกรรมการตลาด (บธ.บ.) เรียนออนไลน์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
+            EN: { title: "Marketing Innovation (Online)", description: "Details updating soon...", careers: [], education: [] }
+        },
     }
 };
