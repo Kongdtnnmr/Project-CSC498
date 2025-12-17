@@ -1,7 +1,7 @@
 export const courseDetails = {
     pws: {
         0: { // Mechanical Technology
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคนิคเครื่องกล (กลุ่มอาชีพเครื่องกล และยานยนต์ ).webp",
+            scheduleImage: "/pic/pic ปวส/pws_mech_tech.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคนิคเครื่องกล (กลุ่มอาชีพเครื่องกล และยานยนต์ )",
                 title: "สาขาวิชาเทคนิคเครื่องกล",
@@ -41,7 +41,7 @@ export const courseDetails = {
             }
         },
         1: { // Electrical Power
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
+            scheduleImage: "/pic/pic ปวส/pws_elec_power.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขางานไฟฟ้า",
@@ -119,7 +119,7 @@ export const courseDetails = {
             }
         },
         3: { // Industrial Electronics (NEW ITEM - will be inserted at index 3)
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคโนโลยีอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
+            scheduleImage: "/pic/pic ปวส/pws_ind_elec.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเทคโนโลยีอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาอิเล็กทรอนิกส์อุตสาหกรรม",
@@ -167,13 +167,13 @@ export const courseDetails = {
         },
         // Old Index 3 -> New Index 4: Sports Business
         4: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ สาขาวิชาการจัดการธุรกิจการกีฬา.webp",
+            scheduleImage: "/pic/pic ปวส/pws_sports_mgmt.webp",
             TH: { departmentName: "ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ สาขาวิชาการจัดการธุรกิจการกีฬา", title: "สาขาวิชาการจัดการธุรกิจการกีฬา", description: "รายละเอียดอยู่ระหว่างการปรับปรุง", careers: [], education: [] },
             EN: { departmentName: "Health and Beauty Industry Type: Health Promotion Service Career Group, Sports Business Management Program", title: "Sports Business Management", description: "Details updating soon...", careers: [], education: [] }
         },
         // Old Index 4 -> New Index 5: Mechatronics
         5: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์และหุ่นยนต์และระบบอัตโนมัติ).webp",
+            scheduleImage: "/pic/pic ปวส/pws_mecha.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์และหุ่นยนต์และระบบอัตโนมัติ)",
                 title: "สาขางานเมคคาทรอนิกส์และหุ่นยนต์",
@@ -212,7 +212,7 @@ export const courseDetails = {
         },
         // Old Index 5 -> New Index 6: Accounting
         6: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี ).webp",
+            scheduleImage: "/pic/pic ปวส/pws_acc.webp",
             TH: {
                 departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี )",
                 title: "สาขาวิชาการบัญชี",
@@ -244,7 +244,7 @@ export const courseDetails = {
         },
         // Old Index 6 -> New Index 7: Marketing
         7: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด).webp",
+            scheduleImage: "/pic/pic ปวส/pws_mkt.webp",
             TH: {
                 departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด)",
                 title: "สาขาวิชาการตลาด",
@@ -262,7 +262,7 @@ export const courseDetails = {
         },
         // Old Index 7 -> New Index 8: Logistics
         8: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาการจัดการโลจิสติกส์และซัพพลายเชน (กลุ่มอาชีพโลจิสติกส์).webp",
+            scheduleImage: "/pic/pic ปวส/pws_logistics.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาการจัดการโลจิสติกส์และซัพพลายเชน (กลุ่มอาชีพโลจิสติกส์)",
                 title: "สาขาวิชาการจัดการโลจิสติกส์",
@@ -280,7 +280,7 @@ export const courseDetails = {
         },
         // Old Index 8 -> New Index 9: IT
         9: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีสารสนเทศ (กลุ่มอาชีพซอฟต์แวร์และโปรแกรมประยุกต์).webp",
+            scheduleImage: "/pic/pic ปวส/pws_it.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีสารสนเทศ (กลุ่มอาชีพซอฟต์แวร์และโปรแกรมประยุกต์)",
                 title: "สาขาวิชาเทคโนโลยีสารสนเทศ : lnformation Technology Program",
@@ -298,7 +298,7 @@ export const courseDetails = {
         },
         // Old Index 9 -> New Index 10: Multimedia
         10: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาศิลปกรรมและเศรษฐกิจสร้างสรรค์ สาขาวิชาดิจิทัลกราฟิก (กลุ่มอาชีพศิลปะและการออกแบบ).webp",
+            scheduleImage: "/pic/pic ปวส/pws_digital_graphic.webp",
             TH: {
                 departmentName: "ประเภทวิชาศิลปกรรมและเศรษฐกิจสร้างสรรค์ สาขาวิชาดิจิทัลกราฟิก (กลุ่มอาชีพศิลปะและการออกแบบ)",
                 title: "สาขาวิชามัลติมีเดีย : Multimedia Program",
@@ -332,19 +332,19 @@ export const courseDetails = {
         // 11: Health
         // 12: EV
         11: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม สาขาวิชาการจัดการงานบริการสถานพยาบาล (กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ).webp",
+            scheduleImage: "/pic/pic ปวส/pws_healthcare.webp",
             TH: { departmentName: "ประเภทวิชาอุตสาหกรรมสุขภาพและความงาม สาขาวิชาการจัดการงานบริการสถานพยาบาล (กลุ่มอาชีพบริการและเสริมสร้างสุขภาพ)", title: "สาขาวิชาการจัดการงานบริการสถานพยาบาล", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
             EN: { departmentName: "Health and Beauty Industry Type: Healthcare Facility Service Management Program (Health Promotion Service Career Group)", title: "Healthcare Service Management", description: "Details updating soon...", careers: [], education: [] }
         },
         12: {
-            scheduleImage: "/pic/pic ปวส/ประเภทวิชาอุตสาหกรรม กลุ่มอาชีพเครื่องกลและยานยนต์ สาขาวิชาเทคนิคยานยนต์ไฟฟ้า.webp",
+            scheduleImage: "/pic/pic ปวส/pws_ev.webp",
             TH: { departmentName: "ประเภทวิชาอุตสาหกรรม กลุ่มอาชีพเครื่องกลและยานยนต์ สาขาวิชาเทคนิคยานยนต์ไฟฟ้า", title: "สาขาวิชาเทคนิคยานยนต์ไฟฟ้า", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
             EN: { departmentName: "Industry Type: Mechanical and Automotive Career Group, Electric Vehicle Technique Program", title: "Electric Vehicle Technology", description: "Details updating soon...", careers: [], education: [] }
         }
     },
     pvc: {
         0: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างยนต์ (กลุ่มอาชีพเครื่องกล และยานยนต์).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_auto.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างยนต์ (กลุ่มอาชีพเครื่องกล และยานยนต์)",
                 title: "สาขาวิชาช่างยนต์ : Automotive Program",
@@ -374,7 +374,7 @@ export const courseDetails = {
             }
         },
         1: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_elec.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาช่างไฟฟ้า (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาช่างไฟฟ้า : Electrical Power Program",
@@ -405,7 +405,7 @@ export const courseDetails = {
             }
         },
         2: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_elec_tech.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาอิเล็กทรอนิกส์ (กลุ่มอาชีพพลังงานไฟฟ้าและอิเล็กทรอนิกส์)",
                 title: "สาขาวิชาช่างอิเล็กทรอนิกส์ : Electronics Program",
@@ -442,7 +442,7 @@ export const courseDetails = {
             }
         },
         3: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์หุ่นยนต์และระบบอัตโนมัติ).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_mecha.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรม สาขาวิชาเมคคาทรอนิกส์และหุ่นยนต์ (กลุ่มอาชีพเมคคาทรอนิกส์หุ่นยนต์และระบบอัตโนมัติ)",
                 title: "สาขาวิชาเมคคาทรอนิกส์ : Mechatronics Program",
@@ -465,7 +465,7 @@ export const courseDetails = {
             }
         },
         4: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_acc.webp",
             TH: {
                 departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการบัญชี (กลุ่มอาชีพการเงินและบัญชี)",
                 title: "สาขาวิชาการบัญชี : Accounting Program",
@@ -488,7 +488,7 @@ export const courseDetails = {
             }
         },
         5: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_mkt.webp",
             TH: {
                 departmentName: "ประเภทวิชาบริหารธุรกิจ สาขาวิชาการตลาด (กลุ่มอาชีพการตลาด)",
                 title: "สาขาวิชาการตลาด",
@@ -507,7 +507,7 @@ export const courseDetails = {
             }
         },
         6: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีธุรกิจดิจิทัล (กลุ่มอาชีพธุรกิจดิจิทัลและพาณิชย์อิเล็กทรอนิกส์).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_digital_biz.webp",
             TH: {
                 departmentName: "ประเภทวิชาอุตสาหกรรมดิจิทัลและเทคโนโลยีสารสนเทศ สาขาวิชาเทคโนโลยีธุรกิจดิจิทัล (กลุ่มอาชีพธุรกิจดิจิทัลและพาณิชย์อิเล็กทรอนิกส์)",
                 title: "สาขาวิชาคอมพิวเตอร์ธุรกิจ",
@@ -526,7 +526,7 @@ export const courseDetails = {
             }
         },
         7: {
-            scheduleImage: "/pic/pic ปวช/ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาโลจิสติกส์ (กลุ่มอาชีพโลจิสติกส์).webp",
+            scheduleImage: "/pic/pic ปวช/pvc_logistics.webp",
             TH: { departmentName: "ประเภทวิชาอุตสาหกรรมโลจิสติกส์ สาขาวิชาโลจิสติกส์ (กลุ่มอาชีพโลจิสติกส์)", title: "สาขาวิชาโลจิสติกส์", description: "รายละเอียดกำลังปรับปรุง", careers: [], education: [] },
             EN: { departmentName: "Logistics Industry Type: Logistics Program (Logistics Career Group)", title: "Logistics", description: "Details updating soon...", careers: [], education: [] }
         }
